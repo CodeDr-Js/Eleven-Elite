@@ -43,7 +43,7 @@ const BetSecure = ({
   const handleLogout = async () => {
     try {
       API.logout(token["auth-token"]).then((result) => {
-        console.log(result);
+       // console.log(result);
         if (result.success) {
           removeToken("auth-token");
         } else {
@@ -51,7 +51,7 @@ const BetSecure = ({
         }
       });
     } catch (error) {
-      console.log(error);
+     // console.log(error);
     }
   };
 
@@ -61,7 +61,7 @@ const BetSecure = ({
   useEffect(() => {
     const token1 = token["auth-token"];
     if (!token1) {
-      console.log("Your token is", token1);
+    //  console.log("Your token is", token1);
       navigate("/login");
       setActiveToken("");
     } else {
@@ -99,7 +99,7 @@ const BetSecure = ({
     stake_amount: values.amount,
   };
 
-  console.log(dbValues);
+ // console.log(dbValues);
 
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
@@ -129,7 +129,7 @@ const BetSecure = ({
 
     API.paynow(dbValues, token["auth-token"])
       .then((result) => {
-        console.log(result);
+   //     console.log(result);
         setShowLoader(false);
         if (result.success) {
           setActivities_g(result.activities);
@@ -174,7 +174,7 @@ const BetSecure = ({
     // .catch((err) => console.log(err));
   };
 
-  console.log(dbValues);
+ // console.log(dbValues);
   //console.log(id);
 
   const handleChange = (event) => {

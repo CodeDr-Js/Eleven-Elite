@@ -18,14 +18,14 @@ import "../fontawesome/css/all.css";
 const Deposit = () => {
   const { setActiveToken, activities_g, setActivities_g, result, setResult } =
     useContext(DataContext);
-    console.log(activities_g);
+   // console.log(activities_g);
   const navigate = useNavigate();
   const [token, setToken, removeToken] = useCookies(["auth-token"]);
   const [message, setMessage] = useState();
   const [reloadTriggered, setReloadTriggered] = useState(false);
   const [isOpen, setIsOpen] = useState(true);
   
-  console.log(activities_g);
+  //console.log(activities_g);
   const handleCopy = (text) => {
     navigator.clipboard
       .writeText(text)
@@ -48,26 +48,26 @@ const Deposit = () => {
     const token1 = token["auth-token"];
     //console.log(typeof activities_g.wallet.pay_address);
     // setTimeout(() => {
-      console.log(activities_g);
+    //  console.log(activities_g);
       if (!Array.isArray(activities_g) && !activities_g.wallet.pay_address) {
         setIsOpen(false);
-        console.log("loading... Not object");
+      //  console.log("loading... Not object");
         //setReloadTriggered(true);
         API.retrieveData(token1)
           .then((result) => {
-            console.log(result);
+        //    console.log(result);
             setIsOpen(true)
             if (result.success || result.message === "success") {
               setResult(result);
               setActivities_g(result.activities);
             } else if (!result.success) {
-              console.log("removing token");
+          //    console.log("removing token");
               removeToken("auth-token");
             }
           })
           .catch((err) => console.log(err));
       } else {
-        console.log("Pay address is found in useContext result");
+       // console.log("Pay address is found in useContext result");
       }
     // }, 1000);
   };
@@ -79,7 +79,7 @@ const Deposit = () => {
   const checkToken = () => {
     const token1 = token["auth-token"];
     if (token1) {
-      console.log("token", token1);
+     // console.log("token", token1);
       setActiveToken(token1);
     } else {
       setActiveToken("");

@@ -1,5 +1,5 @@
 import { pathname } from "../search_dir/search_dir"
-console.log(pathname);
+//console.log(pathname);
 
 
 let Token='5e26b54473f0cce5a2e84a5a209ec5340ae2357e'
@@ -224,7 +224,7 @@ export class API {
   }
 
   static changePassword(body, Token){
-    console.log(body, Token);
+    //console.log(body, Token);
      let endpoint = "settings/change_password/";
      return fetch(url + endpoint, {
        method: "POST",

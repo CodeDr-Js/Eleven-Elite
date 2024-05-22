@@ -10,12 +10,12 @@ const openDB = () => {
     };
 
     request.onsuccess = (event) => {
-      console.log("IndexedDB opened successfully");
+   //   console.log("IndexedDB opened successfully");
       resolve(event.target.result);
     };
 
     request.onupgradeneeded = (event) => {
-      console.log("IndexedDB upgrade needed");
+     // console.log("IndexedDB upgrade needed");
       const db = event.target.result;
       const store = db.createObjectStore(storeName, {
         keyPath: "id",

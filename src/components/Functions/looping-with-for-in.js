@@ -14,7 +14,7 @@ for (const dateKey in openbet) {
         const idObject = dateObject[idKey];
         // Access the game property of the ticket object
         const game = idObject.ticket.game;
-        console.log(game); // Output: game1, game2, game3
+       // console.log(game); // Output: game1, game2, game3
       }
     }
   }

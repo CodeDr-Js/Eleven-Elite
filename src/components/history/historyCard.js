@@ -167,7 +167,7 @@ const HistoryCard = ({loading, openBet, setOpenBet, setSettled, setActivities}) 
 
   let e = [];
   Object.entries(openBet).forEach(([date, tickets]) => {
-    console.log(date); // Print the date
+    //console.log(date); // Print the date
     Object.entries(tickets).forEach(([id, ticketData]) => {
       //console.log(id); // Print the ID
       if (ticketData.ticket_head.status === "Open") {
@@ -183,7 +183,7 @@ const HistoryCard = ({loading, openBet, setOpenBet, setSettled, setActivities}) 
 
   const historycard = e.map(([item, ticket_head, id, date], index) => {
 
-    console.log(ticket_head);
+    //console.log(ticket_head);
     const gameStartTime = item.market.timestamp * 1000;
     let gameTime = CalculateStartDiff(gameStartTime);
 

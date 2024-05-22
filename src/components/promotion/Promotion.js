@@ -8,14 +8,14 @@ import PromotionFC from "./PromotionFC";
 import { API } from "../api-service/api-service";
 import { useCookies } from "react-cookie";
 import { DataContext } from "../APIs/Api";
-import { host, hostname } from "../search_dir/search_dir";
+import { host, hostname, origin } from "../search_dir/search_dir";
 import { useNavigate } from "react-router-dom";
 import Loader from "../loader/loader";
 import Footer from "../Home/anti-scores/footer";
 
 
 
-const hostName = `${host}/register/?invited=`
+const hostName = `${origin}/register/?invited=`
 
 
 
@@ -35,7 +35,7 @@ const Promotion = () => {
   } else{
     setActiveToken(token["auth-token"]);
   }
-  console.log(promotion);
+ // console.log(promotion);
   useEffect(() => {
     setLoadings(true);
     if(promotion !== null) {
@@ -49,7 +49,7 @@ const Promotion = () => {
     if(promotion === null) {
       API.promotion(token["auth-token"])
       .then((result) => {
-        console.log(result, token["auth-token"]);
+       // console.log(result, token["auth-token"]);
         if(result.success){
           
           setPromotion(result)

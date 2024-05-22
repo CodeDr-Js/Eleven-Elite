@@ -150,7 +150,7 @@ const ScoreAnti = () => {
               const matchCardDiv = document.getElementById(matchCard);
               //matchCard.style.display = 'none';
               matchCardDiv.remove();
-              console.log(gameTime, "expired");
+             // console.log(gameTime, "expired");
             }
             //console.log(end);
           }

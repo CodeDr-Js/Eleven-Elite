@@ -22,7 +22,7 @@ const ChangePassword = ({
     const [error, setError] = useState();
     const [success, setSuccess] = useState();
   
-    console.log(values);
+//    console.log(values);
   
     const togglePasswordVisibility = () => {
       setPasswordVisible(!passwordVisible);
@@ -33,7 +33,7 @@ const ChangePassword = ({
         API.changePassword(values, token["auth-token"],)
         .then((result) => {
             setIsLoadingPin(false);
-            console.log(result);
+  //          console.log(result);
             if(result.success){
                 alert(result.message)
                 removeToken("auth-token");

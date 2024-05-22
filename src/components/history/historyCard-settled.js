@@ -205,7 +205,7 @@ const HistoryCardSettled = ({loading, settled,  }) => {
   });
 
 
-  console.log(activeButton);
+  //console.log(activeButton);
   return (
     <>
       <SettleNav activeButton={activeButton} setActiveButton={setActiveButton} />

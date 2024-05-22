@@ -49,7 +49,7 @@ const Register = () => {
   useEffect(() => {
     const token1 = token["auth-token"];
     if (token1) {
-      console.log("Your token is", token1);
+   //   console.log("Your token is", token1);
       navigate("/");
       setActiveToken('')
     } else {
@@ -61,7 +61,7 @@ const Register = () => {
   const navigate = useNavigate();
 
   const handleRequest = (response) => {
-    console.log(response);
+   // console.log(response);
   };
 
   //Using the dir and gettin user invited code
@@ -103,14 +103,14 @@ const Register = () => {
           setToken("auth-token", result.token);
           setActiveToken(result.token)
           setSuccess(result.message);
-          console.log(result.message);
-          console.log(success);
+     //     console.log(result.message);
+     //     console.log(success);
           navigate("/");
           // setTimeout(() => {
 
           // }, 2000);
         } else {
-          console.log("user", result);
+       //   console.log("user", result);
           setError(result.message);
         }
       })

@@ -20,7 +20,7 @@ const Notification = () => {
     useContext(DataContext);
   const [token, setToken, removeToken] = useCookies(["auth-token"]);
   const [loadings, setLoadings] = useState(false)
-  console.log(notification);
+//  console.log(notification);
   useEffect(() => {
     if (!token["auth-token"]) {
       removeToken("auth-token");
@@ -43,7 +43,7 @@ const Notification = () => {
     if (notification === null) {
       API.notification(token["auth-token"])
         .then((result) => {
-          console.log(result);
+        //  console.log(result);
           if (result.success) {
            
             setNotification(result.activities.notification);
@@ -51,7 +51,7 @@ const Notification = () => {
         })
         .catch((err) => console.log(err));
     } else {
-      console.log("Notification is found in useContext");
+    //  console.log("Notification is found in useContext");
     }
   }, []);
 
@@ -72,7 +72,7 @@ const Notification = () => {
   const seen = () =>
     notification.seen.map((item) => {
       return Object.entries(item).map(([key, value]) => {
-        console.log("keys is:.. ", key, value);
+      //  console.log("keys is:.. ", key, value);
         return (
           <>
             <NotificationCardnew
@@ -87,7 +87,7 @@ const Notification = () => {
   const unseen = () =>
     notification.unseen.map((item) => {
       return Object.entries(item).map(([key, value]) => {
-        console.log("keys is:.. ", key, value);
+       // console.log("keys is:.. ", key, value);
         return (
           <>
             <NotificationCardnew

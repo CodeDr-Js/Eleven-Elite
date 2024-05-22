@@ -32,7 +32,7 @@ const Main = () => {
     if (confirmation) {
       setLoading(true);
       API.logout(token["auth-token"]).then((result) => {
-        console.log(result);
+        //console.log(result);
         setLoading(false);
         if (result.success) {
           removeToken("auth-token");
@@ -64,7 +64,6 @@ const Main = () => {
 
         <div className="rounded-4 main-div-2 d-flex w-100">
           <IconCon image={Soccer} text="Soccer" link="/anti-score" />
-
           <IconCon image={History} text="History" link="/history" />
           <IconCon image={Rewards} text="Rewards" link="/invite" />
           <IconCon image={Telegram} text="Telegram" link="https://t.me/+KLqcImLckXAxMmZk" />

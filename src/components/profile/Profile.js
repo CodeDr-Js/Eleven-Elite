@@ -23,16 +23,16 @@ import redeemGift from "../../assets/svg/gift (5) 1.svg";
 import notification from "../../assets/svg/bell (1).svg";
 import { DataContext } from "../APIs/Api";
 import { API } from "../api-service/api-service";
-import { host, hostname } from "../search_dir/search_dir";
+import { host, hostname , origin} from "../search_dir/search_dir";
 import Loader from "../loader/loader";
 import ChangePassword from "../changePins/changePassword";
 import ChangePin from "../changePins/changePin";
 import RewardCoupon from "../reward/rewardCoupon";
 import Footer from "../Home/anti-scores/footer";
 
-console.log(host);
+//console.log(origin);
 
-const hostName = `${host}/register/?invited=`;
+const hostName = `${origin}/register/?invited=`;
 
 const Profile = () => {
   const {
@@ -158,7 +158,7 @@ const Profile = () => {
             style={{ height: "44px" }}
           >
             {!Array.isArray(activities_g) ? (
-              <p className="bg-transparent acct-info-text">
+              <p className="bg-transparent acct-info-text pt-3 ps-2">
                 {hostName}
                 {activities_g.referral.url}
               </p>

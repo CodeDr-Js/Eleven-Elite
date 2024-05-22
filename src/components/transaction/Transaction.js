@@ -53,7 +53,7 @@ const Transaction = () => {
 
 
   const handleSearch = (values) => {
-    console.log("The values are", values);
+    //console.log("The values are", values);
     setIsLoading(true);
     API.transaction(values, token['auth-token'])
     .then((result) => {
@@ -67,7 +67,7 @@ const Transaction = () => {
         
         
       }
-      console.log(result);
+      //console.log(result);
     })
     .catch(err => console.log("Error", err))
   }
@@ -77,7 +77,7 @@ const Transaction = () => {
   }, [value])
 
 
-  console.log(data);
+  //console.log(data);
   const transactionCard = data.map(e => {
       // if(e.status === "success") {
       //   return (<><TransactionCard /></>)

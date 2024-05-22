@@ -37,12 +37,12 @@ const DataProvider = ({ children }) => {
   const [pending, setPending] = useState(null);
   const [loadingNew, setLoadingNew] = useState();
 
-  console.log(allData);
+ // console.log(allData);
   
   const checkToken = () => {
     const token1 = token["auth-token"];
     if (token1 ) {
-      console.log("token", token1);
+      //console.log("token", token1);
       setActiveToken(token1)
     } else {
       setActiveToken("");
@@ -63,7 +63,7 @@ const DataProvider = ({ children }) => {
   //   dbFetch(true)
   // },[])
 
-  console.log(data, allData);
+  //console.log(data, allData);
   //handling logout token
    const handleLogout = async () => {
      try {
@@ -218,7 +218,7 @@ const DataProvider = ({ children }) => {
        // Check if data is found in IndexedDB storage
        let client = await getRealTimeDate() ;
        client_timezone=client.timezone
-       console.log({client});
+    //   console.log({client});
        let currentDateNow = new Date(client.datetime).toISOString().split("T")[0];
        
        if(req_next_date){
@@ -238,7 +238,7 @@ const DataProvider = ({ children }) => {
      
        webWorker.addEventListener('message', (event) => {
          let webWorkerData = event.data;
-         console.log({webWorkerData});
+      //   console.log({webWorkerData});
          if (webWorkerData.type=='setData'){
            setData(webWorkerData.data)
          }else{
@@ -252,7 +252,7 @@ const DataProvider = ({ children }) => {
          
            setAllData((prevData) => [...prevData, ...webWorkerData.data])
             if(webWorkerData.lastPage) {setCheckData(true)
-              console.log("Last page updated success:");
+        //      console.log("Last page updated success:");
             }
          }
        });
@@ -381,13 +381,13 @@ const DataProvider = ({ children }) => {
 
   async function getUserData() {
    
-    console.log("Token sending....", activeToken);
+    //console.log("Token sending....", activeToken);
    
     if (activeToken) {
-      console.log("token", activeToken);
+      //console.log("token", activeToken);
       API.retrieveData(activeToken).then((result) => {
-        console.log("Running API retrieve always",result);
-        console.log("Running API retrieve always");
+        //console.log("Running API retrieve always",result);
+        //console.log("Running API retrieve always");
         if(result.success || result.message === "success") {
 
           setResult(result); 
@@ -396,17 +396,17 @@ const DataProvider = ({ children }) => {
           setSettled_g(result.activities.bet.settled);
           setOpenBet_g(result.activities.bet.openbet);
         } else if(result.detail) {
-          console.log("removing token");
+          //console.log("removing token");
           navigate("/login")
           setActiveToken("");
           removeToken("auth-token");
-          console.log("It has removed the token and the token is :",token["auth-token"]);;
+          //console.log("It has removed the token and the token is :",token["auth-token"]);;
 
         }
        
       }).catch((err)=> console.log(err))
     } else {
-      console.log("Token not found");
+      //console.log("Token not found");
       //removeToken('auth-token');
       setActiveToken("");
       setActivities_g([]);
@@ -464,7 +464,7 @@ const DataProvider = ({ children }) => {
   //   .catch((err) => console.log(err))
   // }, [0])
 
-  console.log(activities_g);
+  //console.log(activities_g);
 
   return (
     <DataContext.Provider

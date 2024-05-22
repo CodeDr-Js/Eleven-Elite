@@ -37,7 +37,7 @@ export default () => {
         const db = e.target.result;
 
         stores.map(({ name, keyPath }) => {
-            console.log("mapping stores", name);
+           // console.log("mapping stores", name);
             db.createObjectStore(name, { keyPath });
             if (!db.objectStoreNames.contains(name)) {
             }
@@ -64,7 +64,7 @@ export default () => {
             const transaction = transactions.objectStore(store.name);
             return resolve({ transaction, store });
             } catch (e) {
-            console.log(e);
+            //console.log(e);
             indexedDB.deleteDatabase(IDBConfig.name);
             }
         };
@@ -86,9 +86,9 @@ export default () => {
         );
         // console.log(transaction, store);
         transaction.put(data);
-        console.log("putting data to store", data);
+        //console.log("putting data to store", data);
     } catch (error) {
-        console.log("idb error", error);
+        //console.log("idb error", error);
     }
     };
 
@@ -100,7 +100,7 @@ export default () => {
         if (indexedDB) {
             createIndexedDB(IDBConfig);
         }
-        console.log("retrivingData____ with data>>", url);
+        //console.log("retrivingData____ with data>>", url);
         //??
         const { transaction, store } = await openStore(IDBConfig.stores[myStores.indexOf(name)],"readwrite");
         let last_date=url;
@@ -114,13 +114,13 @@ export default () => {
                 if(canDeleteData){
                     const delCursor = cursor.delete();
                     delCursor.onsuccess = () => {
-                        console.log( "Deleted ", );
+          //              console.log( "Deleted ", );
                     };
                 }
                 cursor.continue();
             }
             if (cursors.readyState.includes("done")) {
-                console.log('cursor DONE')
+            //    console.log('cursor DONE')
                 //const request = transaction.get(last_date);
                 const request = transaction.get(url);
                 let [data, dataEt] = [{}, false];
@@ -131,7 +131,7 @@ export default () => {
                         data = request.result;
                         dataEt = true;
                     } else {
-                        console.log("No req_data");
+              //          console.log("No req_data");
                         data = {
                             url,
                             data: {},
@@ -145,13 +145,13 @@ export default () => {
                     IDBConfig.dataEt = dataEt;
                 };
                 request.onerror = (e) => {
-                    console.log(e);
+                //    console.log(e);
                 };
             }
         };
         cursors.onerror = e =>{console.log(e.error);}
         //??
-        console.log('using last date>><',last_date)
+       // console.log('using last date>><',last_date)
         
     };
     // index Db ended
@@ -182,7 +182,7 @@ export default () => {
           const timeOut = setInterval(() => {
             if (IDBConfig.working_dir !== null) {
                 clearInterval(timeOut);
-                console.log('Runing<<>',{IDBConfig,currentDateNow,client_timezone,client_date_str})
+         //       console.log('Runing<<>',{IDBConfig,currentDateNow,client_timezone,client_date_str})
                 const dbData = IDBConfig.working_dir.data;
                 // console.log('DATA RETRIEVED>>><<',IDBConfig.working_dir)
                 // return
@@ -192,12 +192,12 @@ export default () => {
                         console.log('Data from server>>',res)
                         if (!Object.keys(res.fixtures)[0]) {
                             //fetch  data from football api
-                            console.log('NO FIXTURE DATA FOUND FOR REQ DATE');
+           //                 console.log('NO FIXTURE DATA FOUND FOR REQ DATE');
                             // await fetchFixtures(dbData,currentDateNow)
                             
                         }else{
                             // fixture was retrieved from server 'check if 
-                            console.log('data was retrieved from server ')
+             //               console.log('data was retrieved from server ')
                             IDBConfig.working_dir.data.fixtures=res.fixtures
                             postMessage({'data':IDBConfig.working_dir.data.fixtures.response,type:'setData'})
                             saveStoreObj(IDBConfig.working_dir);
@@ -208,16 +208,18 @@ export default () => {
                 else { 
                 // fixture data already exist in user db >><< checking the odd
                     postMessage({data:IDBConfig.working_dir.data.fixtures.response,type:'setData'})
-                    console.log("Fixture Data UPDATED>><<", IDBConfig.working_dir.data);
+               //     console.log("Fixture Data UPDATED>><<", IDBConfig.working_dir.data);
                 if (!Object.keys(dbData).includes("odds")||!dbData.odds[0]) {
-                    console.log('NO ODD DATA FOUND>>> Fetching ODDS');
+                 //   console.log('NO ODD DATA FOUND>>> Fetching ODDS');
                     fetchOddData(dbData,currentDateNow);
                 } else {
-                    console.log("Odd is found", IDBConfig.working_dir);
+                   // console.log("Odd is found", IDBConfig.working_dir);
                     // setAllData(IDBConfig.working_dir.data.odds);
                     postMessage({data:IDBConfig.working_dir.data.odds,type:'setAllData',lastPage:true})            
                     if(dbData.run_list.current_page<dbData.run_list.to_run.length){fetchOddData(dbData,currentDateNow);}
-                    else{console.log('DATA NOW COMPLETED')}              
+                    else{//console.log('DATA NOW COMPLETED')
+                        
+                    }              
                 }
                 }
             }

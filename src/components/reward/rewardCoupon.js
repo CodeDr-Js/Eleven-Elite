@@ -28,7 +28,7 @@ const RewardCoupon = ({
     const [loading, setLoading] = useState(false)
     const [success, setSuccess] = useState(null);
   
-    console.log(values);
+  //  console.log(values);
     
     if(!token["auth-token"]){
         removeToken("auth-token");
@@ -85,7 +85,7 @@ const RewardCoupon = ({
     // }
 
    
-    console.log(success);
+    //console.log(success);
     return (
     <>
         {success ? (<Reward bonus={success} success={success} setLoading={setSuccess}/>) : ""}

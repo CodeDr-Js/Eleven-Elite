@@ -7,7 +7,7 @@ import { DataContext } from "../APIs/Api";
 
 const authentication = (activeToken, navigate) => {
   if (activeToken === "") {
-    console.log("Your token is", activeToken);
+    //console.log("Your token is", activeToken);
     navigate("/login");
   } else {
   }

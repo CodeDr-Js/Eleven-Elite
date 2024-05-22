@@ -77,7 +77,7 @@ const Odd = () => {
     });
 
     setIsOpen(!isOpen);
-    console.log(modalData);
+//    console.log(modalData);
   };
 
   const handleCloseModal = (e) => {

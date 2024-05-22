@@ -172,8 +172,8 @@ const Bet = ({
       // .catch((err) => console.log(err));
   };
 
-  console.log(dbValues);
-  console.log(id);
+ // console.log(dbValues);
+ // console.log(id);
 
 
   const handleChange = (event) => {

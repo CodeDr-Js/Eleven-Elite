@@ -19,11 +19,11 @@ const History = () => {
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
 
-  console.log(activities_g);
+ // console.log(activities_g);
   function getUserData() {
     const token1 = token["auth-token"];
     if (token1) {
-      console.log("token", token1);
+   //   console.log("token", token1);
       setActiveToken(token1)
       API.retrieveData(token1)
         .then((result) => {

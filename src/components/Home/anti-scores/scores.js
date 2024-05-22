@@ -48,7 +48,7 @@ const ScoreAnti = () => {
     return leagueName;
   };
 
-  console.log(data);
+ // console.log(data);
 
   const newGames = data[0] ? data.map((game) => {
     const gameStatus = game.fixture.status.short;

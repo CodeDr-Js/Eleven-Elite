@@ -20,13 +20,13 @@ const ForgetPassword = () => {
   useEffect(() => {
     const token1 = token["auth-token"];
     if (token1) {
-      console.log("Your token is", token1);
+//      console.log("Your token is", token1);
       navigate("/");
     } else {
     }
   }, []);
 
-  console.log(values);
+ // console.log(values);
 
   const [success, setSuccess] = useState(null);
   const [error, setError] = useState(null);
@@ -39,13 +39,13 @@ const ForgetPassword = () => {
     e.preventDefault();
 
     setShowLoader(true);
-    console.log("sending.....");
+  //  console.log("sending.....");
 
     API.forgetPassword(values)
       .then((result) => {
         setShowLoader(false);
         if (result.success) {
-          console.log(result);
+    //      console.log(result);
           setSuccess(result.message);
           //navigate("/");
         } else {

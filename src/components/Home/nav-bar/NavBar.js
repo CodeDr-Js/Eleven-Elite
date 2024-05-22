@@ -19,7 +19,7 @@ import "../../largeScreen/largeHeader.css";
 const NavBar = () => {
   const navigate = useNavigate();
   const {activities_g, user_g} = useContext(DataContext);
-  console.log(activities_g);
+  //console.log(activities_g);
   return (
     <div className="">
 

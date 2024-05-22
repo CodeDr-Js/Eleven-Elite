@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 
 const SuccessCard = ({ success, isOpen1, handleCloseModule2, pin }) => {
-  console.log(pin, isOpen1, success);
+  //console.log(pin, isOpen1, success);
   const navigate = useNavigate();
   const goBack = () => {
     // window.history.back();

@@ -25,7 +25,7 @@ const Index = () => {
   const { id } = useParams();
   const { data, allData, activeToken, setActiveToken, activities, activities_g, user, result } =
     useContext(DataContext);
-    console.log(activities_g);
+    //console.log(activities_g);
   const [token] = useCookies(["auth-token"]);
   const [loadings, setLoadings] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -38,7 +38,7 @@ const Index = () => {
         setLoading(true)
         API.removeBonus(token["auth-token"])
         .then((result) => {
-          console.log(result);
+         // console.log(result);
         })
         .catch((err) => console.log(err))
       }
@@ -62,7 +62,7 @@ const Index = () => {
   useEffect(() => {
     const token1 = token["auth-token"];
     if (!token1) {
-      console.log("Your token is", token1);
+      //console.log("Your token is", token1);
       navigate("/login");
       setActiveToken("")
     } else {

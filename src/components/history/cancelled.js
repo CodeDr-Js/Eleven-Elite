@@ -107,9 +107,9 @@ const Cancelled = ({loading, settled}) => {
  
   let e = [];
   Object.entries(settled).forEach(([date, tickets]) => {
-    console.log(date); // Print the date
+   // console.log(date); // Print the date
     Object.entries(tickets).forEach(([id, ticketData]) => {
-      console.log(id, ticketData); // Print the ID
+    //  console.log(id, ticketData); // Print the ID
       if (ticketData.ticket_head.outcome === "canc") {
         ticketData.games.forEach((item) => {
             e.push([item, ticketData.ticket_head]);
@@ -122,7 +122,7 @@ const Cancelled = ({loading, settled}) => {
   });
 
   const historycard = e.map(([item, ticket_head]) => {
-    console.log(item);
+  //  console.log(item);
     return (
       <div key={item.id} className="history-card-div main-color rounded-4 shadow-lg">
       <div className="main-color d-flex">

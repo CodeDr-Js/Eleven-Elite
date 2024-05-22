@@ -14,7 +14,7 @@ const Invite = () => {
   const [token, setToken, removeToken] = useCookies(["auth-token"]);
   const [loadings, setLoadings] = useState(false)
 
-  console.log(invite);
+  //console.log(invite);
 
   const currentLevel =
     invite !== null
@@ -25,7 +25,7 @@ const Invite = () => {
     invite !== null
       ? invite.activities.referral.invite_eaning_levels["levels"][currentLevel]
       : "";
-  console.log(runningLevel.downline_required);
+ // console.log(runningLevel.downline_required);
 
   useEffect(() => {
     if (!token["auth-token"]) {
@@ -57,7 +57,7 @@ const Invite = () => {
         })
         .catch((err) => console.log(err));
     } else {
-      console.log(" Invite is found in useContext");
+//      console.log(" Invite is found in useContext");
     }
   }, []);
 

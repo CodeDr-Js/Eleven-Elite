@@ -44,7 +44,7 @@ const Login = () => {
    useEffect(() => {
      const token1 = token["auth-token"];
      if (token1) {
-       console.log("Your token is", token1);
+//       console.log("Your token is", token1);
        navigate("/");
        setActiveToken(token1)
      } else {
@@ -53,7 +53,7 @@ const Login = () => {
      }
    }, []);
 
-  console.log(values);
+ // console.log(values);
 
   const [error, setError] = useState(null);
   const navigate = useNavigate();
@@ -65,7 +65,7 @@ const Login = () => {
     e.preventDefault();
 
     setShowLoader(true);
-    console.log("sending.....");
+   // console.log("sending.....");
     const removeErr = document.getElementById("errorr");
     API.loginUser(values)
       .then((result) => {

@@ -25,7 +25,7 @@ const AntiScore = () => {
   useEffect(() => {
     const token1 = token["auth-token"];
     if (!token1) {
-      console.log("Your token is", token1);
+//      console.log("Your token is", token1);
       navigate("/login");
     } else {
     }

@@ -57,15 +57,15 @@ const ApiCall = () => {
           //saveStoreObj(IDBConfig.working_dir);
           //Object.assign(dbData, { fixture, odds });
         } else {
-          console.log("Data is up to date", IDBConfig.working_dir);
+          //console.log("Data is up to date", IDBConfig.working_dir);
         }
 
         if(!Object.keys(dbData).includes("odds")) {
           fetchOddData(dbData);
         } else {
-          console.log("Odd is found", IDBConfig.working_dir.data.odds )
+          //console.log("Odd is found", IDBConfig.working_dir.data.odds )
         }
-        console.log(IDBConfig);
+        //console.log(IDBConfig);
       };
     } catch (error) {}
   };
@@ -91,7 +91,7 @@ const ApiCall = () => {
       const response = await axios.request(options);
       const newData = response.data;
 
-      console.log(newData);
+//      console.log(newData);
 
       // if (newData.results > 0) {
       if (page < 3) {
@@ -100,9 +100,9 @@ const ApiCall = () => {
         setPage((prevPage) => prevPage + 1);
       } else {
         // All data fetched, log or use allData here
-        console.log("All data fetched:", allData);
+  //      console.log("All data fetched:", allData);
         Object.assign(dbData, { odds: allData });
-        console.log(IDBConfig.working_dir);
+    //    console.log(IDBConfig.working_dir);
         saveStoreObj(IDBConfig.working_dir);
 
         // Store data and lastUpdatedDate in localStorage
@@ -139,12 +139,12 @@ const ApiCall = () => {
       //  localStorage.setItem("data", JSON.stringify(newData.data.response));
       //  localStorage.setItem("lastUpdateDate", currentDate);
       Object.assign(dbData, { fixtures: newData.data.response });
-      console.log(IDBConfig.working_dir);
+      //console.log(IDBConfig.working_dir);
       saveStoreObj(IDBConfig.working_dir);
 
       // console.log("Data saved to localStorage:", data);
     } catch (error) {
-      console.error("Error fetching data from API:", error);
+      //console.error("Error fetching data from API:", error);
     }
   }
 
@@ -167,7 +167,7 @@ const ApiCall = () => {
 
       const retriveOldData = await retriveData(currentDateNow);
 
-      console.log(retriveOldData);
+      //console.log(retriveOldData);
 
       const fixture = JSON.parse(localStorage.getItem("data"));
       const odds = JSON.parse(localStorage.getItem("myData"));
@@ -189,9 +189,9 @@ const ApiCall = () => {
         if (!Object.keys(dbData)[0]) {
           Object.assign(dbData, { fixture, odds });
         } else {
-          console.log("Data is up to date", IDBConfig.working_dir);
+          //console.log("Data is up to date", IDBConfig.working_dir);
         }
-        console.log(IDBConfig);
+        //console.log(IDBConfig);
       };
       saveStoreObj(IDBConfig.working_dir);
       return;
@@ -238,7 +238,7 @@ const ApiCall = () => {
         setPage((prevPage) => prevPage + 1);
       } else {
         // All data fetched, log or use allData here
-        console.log("All data fetched:", allData);
+        //console.log("All data fetched:", allData);
 
         // Store data and lastUpdatedDate in localStorage
         const currentDate = new Date().toISOString().split("T")[0];
@@ -246,7 +246,7 @@ const ApiCall = () => {
         // await setLastUpdateDate(db, currentDate);
       }
     } catch (error) {
-      console.error("Error fetching data:", error);
+      //console.error("Error fetching data:", error);
       // Handle error gracefully
     }
   };
@@ -288,7 +288,7 @@ const ApiCall = () => {
 
           // console.log("Data saved to localStorage:", data);
         } catch (error) {
-          console.error("Error fetching data from API:", error);
+        //  console.error("Error fetching data from API:", error);
         }
       }
 

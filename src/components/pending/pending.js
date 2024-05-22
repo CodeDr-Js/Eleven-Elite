@@ -13,7 +13,7 @@ const Pending = () => {
     const { setActiveToken, pending, setPending } = useContext(DataContext);
     const [token, setToken, removeToken] = useCookies(["auth-token"]);
     const [loadings, setLoadings] = useState(false)
-    console.log(pending);
+   // console.log(pending);
     
   
   

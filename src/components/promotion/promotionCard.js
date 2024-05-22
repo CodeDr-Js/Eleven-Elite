@@ -2,7 +2,7 @@ import React from "react";
 
 
 const PromotionCard = ({registered, deposited, withdrawn, total, style}) => {
-  console.log(style);
+ // console.log(style);
   return (
     <div>
       <p className="ps-3 fw-bold">Statistics</p>

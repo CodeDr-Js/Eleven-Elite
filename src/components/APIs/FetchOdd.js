@@ -23,7 +23,7 @@ function MyComponent() {
       // Check if data is found in IndexedDB storage
       const items = await fetchItems(db);
       if (items.length > 0) {
-        console.log("Data found in IndexedDB:", items);
+       // console.log("Data found in IndexedDB:", items);
         return items;
       }
 
@@ -45,7 +45,7 @@ function MyComponent() {
         const response = await axios.request(options);
         const newData = response.data;
 
-        console.log(newData);
+        //console.log(newData);
 
         if (newData.results > 0) {
           await updateDataInIndexedDB(db, newData.response); // Update data in IndexedDB
@@ -53,11 +53,11 @@ function MyComponent() {
           return newData.response;
         }
       } else {
-        console.log("Data in IndexedDB is up-to-date");
+        //console.log("Data in IndexedDB is up-to-date");
         return items;
       }
     } catch (error) {
-      console.error("Error fetching data:", error);
+      //console.error("Error fetching data:", error);
       // Handle error gracefully
     }
   };

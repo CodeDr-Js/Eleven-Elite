@@ -42,7 +42,7 @@ const Withdrawal = () => {
     const token1 = token["auth-token"];
 
     if (token1) {
-      console.log("token", token1);
+      //console.log("token", token1);
       setActiveToken(token1);
     } else {
       setActiveToken("");
@@ -68,7 +68,7 @@ const Withdrawal = () => {
     setPasswordVisible(!passwordVisible);
   };
 
-  console.log(values);
+//  console.log(values);
 
   // const checkWithdrawalAmount = () => {
   //   const withdraw_id = document.getElementById("withdraw_id");
@@ -151,7 +151,7 @@ const Withdrawal = () => {
             })
             
           }, 10000);
-          console.log(activities_g);
+         // console.log(activities_g);
           //setIsOpen(false);
         } else {
           setError(result.detail);

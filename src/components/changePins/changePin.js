@@ -36,7 +36,7 @@ const ChangePin = ({
             } else {
                 alert(result.message)
             }
-            console.log(result);
+       //     console.log(result);
         })
         .catch((err) => console.log(err))
     }

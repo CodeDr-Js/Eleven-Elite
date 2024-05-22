@@ -1,7 +1,7 @@
 import React from "react";
 
 const PromotionFC = ({promotion, activeButton}) => {
-  console.log(promotion,activeButton);
+ // console.log(promotion,activeButton);
   const splitData = (date) => {
     const splitDate = date.split(".")[0];
     return splitDate;
