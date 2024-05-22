@@ -1,0 +1,26 @@
+/* CarouselComponent.css */
+
+/* Hide the default arrows */
+.slick-prev,
+.slick-next {
+  display: none !important;
+}
+
+.carousel-container {
+  max-width: 800px;
+  /* Set a maximum width for the carousel container */
+  margin: 0 auto;
+  /* Center the carousel horizontally */
+}
+
+.slide {
+  width: 200px;
+  /* Set a fixed width for each slide */
+  margin: 0 10px;
+  border-radius: 30px;
+  /* Add margin between slides */
+}
+
+.mt{
+  margin-top: 52px;
+}

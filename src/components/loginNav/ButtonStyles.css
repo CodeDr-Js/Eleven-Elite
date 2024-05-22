@@ -1,0 +1,49 @@
+/* Colors */
+.g-sub-color {
+  background-color: rgb(11, 11, 116);
+}
+
+.odd-div {
+  background-color: rgba(5, 5, 68, 0.548);
+
+}
+
+.odd-cs {
+  background-color: rgb(7, 24, 59);
+}
+
+.bet-color {
+  background-color: rgb(7, 24, 59);
+
+}
+
+/* End */
+
+/* Default button styles */
+.button {
+  border: none;
+  padding: 10px 30px ;
+  cursor: pointer;
+  outline: none;
+  font-size: 17px;
+  text-decoration: none;
+}
+
+/* Styles for the active button */
+.active {
+  background-color: #007bff;
+  /* Blue background color */
+  color: #fff;
+  /* White text color */
+  border-radius: 18px;
+  
+  /* Rounded corners */
+}
+
+
+.a {
+  background-color: red;
+}
+
+
+
