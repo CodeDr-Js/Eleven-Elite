@@ -152,9 +152,9 @@ useEffect(()=>{
     <>
    
     <div>
-      {loading1? (<Secure league={league1} home={homeName1} away={awayName1} time={convertTimestampToRealTime(timestamp1).split(" ")[1]} hflag={home1} aflag={away1} odd={odd1} score={score1} text={"Play 🎲"} FS={"fs-1"} onClick={handleClick} />): ""}
-      {loading2? (<Secure league={league2} home={homeName2} away={awayName2} time={convertTimestampToRealTime(timestamp2).split(" ")[1]} hflag={home2} aflag={away2} odd={odd2} score={score2} text={"Play 🎲"} FS={"fs-1"} onClick={handleClick} />): ""}
-      {loading3? (<Secure league={league2} home={homeName2} away={awayName2} time={"Expired"} hflag={home2} aflag={away2} odd={odd2} score={score2} style={"disabled opacity-50"} FS={"fs-4 text-danger"} text={"Expired"}  />): ""}
+      {loading1? (<Secure league={league1} home={homeName1} away={awayName1} time={convertTimestampToRealTime(timestamp1).split(" ")[1]} hflag={home1} aflag={away1} odd={odd1} score={score1} text={"Play 🎲"} FS={"fs-1"} e="bg-transparent" s="bg-transparent" onClick={handleClick} />): ""}
+      {loading2? (<Secure league={league2} home={homeName2} away={awayName2} time={convertTimestampToRealTime(timestamp2).split(" ")[1]} hflag={home2} aflag={away2} odd={odd2} score={score2} text={"Play 🎲"} FS={"fs-1"} e="bg-transparent" s="bg-transparent" onClick={handleClick} />): ""}
+      {loading3? (<Secure league={league2} home={homeName2} away={awayName2} time={"Expired"} hflag={home2} aflag={away2} odd={odd2} score={score2} style={"disabled opacity-50"} FS={"fs-4 text-danger"} text={"Expired"} e="bg-warning" s="bg-success"  />): ""}
     
     </div>
 

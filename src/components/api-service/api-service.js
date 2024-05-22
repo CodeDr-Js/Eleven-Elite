@@ -45,9 +45,9 @@ export class API {
     }
     
     static transaction(body, Token){
-       console.log(body);
+       //console.log(body);
         let endpoint=`transaction/?filter_date=${body.filter_date}&transaction_type=${body.transaction_type}`
-        console.log(endpoint);
+        //console.log(endpoint);
         return fetch(url+endpoint,{
             'method':'GET',
             'headers':{

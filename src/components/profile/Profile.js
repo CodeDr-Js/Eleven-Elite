@@ -67,7 +67,7 @@ const Profile = () => {
   useEffect(() => {
     const token1 = token["auth-token"];
     if (token1) {
-      console.log("Your token is", token1);
+      //console.log("Your token is", token1);
       setActiveToken(token1);
     } else {
       navigate("/login");

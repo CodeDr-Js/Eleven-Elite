@@ -49,7 +49,7 @@ const Invite = () => {
     if (invite === null) {
       API.invite(token["auth-token"])
         .then((result) => {
-          console.log(result);
+         // console.log(result);
           if (result.success) {
         
             setInvite(result);

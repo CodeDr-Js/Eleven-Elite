@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Secure = ({home, away, league, hflag, aflag, odd, score, time, style, text, FS, onClick
+const Secure = ({home, away, league, hflag, aflag, odd, score, time, style, text, FS, onClick, e, s
 }) => {
   return (
     <div>
@@ -10,7 +10,7 @@ const Secure = ({home, away, league, hflag, aflag, odd, score, time, style, text
           <div className=" bg-transparent d-flex justify-content-between">
             <div className=" bg-transparent ps-3 d-flex flex-column align-items-center ">
               <div
-                className=" bg-warning rounded-circle mb-2 "
+                className= {`rounded-circle mb-2 ${e}`}  
                 style={{ width: "60px", height: "60px" }}
               >
                 <img className=" bg-transparent" src={hflag} style={{ width: "60px", height: "60px" }} />
@@ -23,7 +23,7 @@ const Secure = ({home, away, league, hflag, aflag, odd, score, time, style, text
             </div>
             <div className=" bg-transparent pe-3 d-flex flex-column align-items-center">
               <div
-                className=" bg-success rounded-circle mb-2 "
+                className={`rounded-circle mb-2 ${s}`}
                 style={{ width: "60px", height: "60px" }}
               >
                 <img className=" bg-transparent" src={aflag} style={{ width: "60px", height: "60px" }} />

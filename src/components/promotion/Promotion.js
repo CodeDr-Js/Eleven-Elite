@@ -35,7 +35,7 @@ const Promotion = () => {
   } else{
     setActiveToken(token["auth-token"]);
   }
- // console.log(promotion);
+ //console.log(promotion);
   useEffect(() => {
     setLoadings(true);
     if(promotion !== null) {
@@ -62,7 +62,7 @@ const Promotion = () => {
       .catch((err) => console.log(err))
 
     } else {
-      console.log("Data is found in promotion..");
+      //console.log("Data is found in promotion..");
     }
       
     
@@ -199,7 +199,7 @@ const Promotion = () => {
         
         {activeButton1 === "level-1" ? (
           <div className="mt-3">
-          {promotion !== null ? (promotion["a_level1"]? ( promotion.activities.referral.generation_track ? (promotion.activities.referral.generation_track[1] ?(<PromotionCard style="main-color" deposited={promotion.activities.referral.generation_track[1].gen_deposit?promotion.activities.referral.generation_track[1].gen_deposit.amount : "0.0"} registered={promotion.activities.referral.generation_track[1].gen_deposit?promotion.activities.referral.generation_track[1].registered.count : "0.0"} withdrawn={promotion.activities.referral.generation_track[1].gen_withdraw?promotion.activities.referral.generation_track[1].gen_withdraw.amount :"0.0"} total={promotion.activities.referral.generation_track[1].commission?promotion.activities.referral.generation_track[1].commission.amount : "0.0"} />) : (<PromotionCard style="main-color" deposited={0} registered={0} withdrawn={0} total={0} />)) : ( <PromotionCard style="main-color" deposited={0} registered={0} withdrawn={"0.00"} total={"0.0"} />)) : (<PromotionCard style="main-color" deposited={0} registered={0} withdrawn={"0.00"} total={"0.0"} />)) : ""}
+          {promotion !== null ? (promotion["a_level1"]? ( promotion.activities.referral.generation_track ? (promotion.activities.referral.generation_track[1] ?(<PromotionCard style="main-color" deposited={promotion.activities.referral.generation_track[1].gen_deposit?promotion.activities.referral.generation_track[1].gen_deposit.amount : "0.0"} registered={promotion.activities.referral.generation_track[1].registered?promotion.activities.referral.generation_track[1].registered.count : "0"} withdrawn={promotion.activities.referral.generation_track[1].gen_withdraw?promotion.activities.referral.generation_track[1].gen_withdraw.amount :"0.0"} total={promotion.activities.referral.generation_track[1].commission?promotion.activities.referral.generation_track[1].commission.amount : "0.0"} />) : (<PromotionCard style="main-color" deposited={0} registered={0} withdrawn={0} total={0} />)) : ( <PromotionCard style="main-color" deposited={0} registered={0} withdrawn={"0.00"} total={"0.0"} />)) : (<PromotionCard style="main-color" deposited={0} registered={0} withdrawn={"0.00"} total={"0.0"} />)) : ""}
             
           </div>
 
@@ -207,7 +207,7 @@ const Promotion = () => {
 
 {activeButton1 === "level-2" ? (
           <div className="mt-3">
-          {promotion !== null ? (promotion["a_level2"]? (promotion.activities.referral.generation_track ? (promotion.activities.referral.generation_track[2] ?(<PromotionCard style="main-color-1" deposited={promotion.activities.referral.generation_track[2].gen_deposit?promotion.activities.referral.generation_track[2].gen_deposit.amount : "0.0"} registered={promotion.activities.referral.generation_track[2].registered?promotion.activities.referral.generation_track[2].registered.count : "0.0"} withdrawn={promotion.activities.referral.generation_track[2].gen_withdraw?promotion.activities.referral.generation_track[2].gen_withdraw.amount :"0.0"} total={promotion.activities.referral.generation_track[2].commission?promotion.activities.referral.generation_track[2].commission.amount : "0.0"} />) : (<PromotionCard style="main-color-1" deposited={0} registered={0} withdrawn={0} total={0} />)) : (<PromotionCard style="main-color-1" deposited={0} registered={0} withdrawn={0} total={"0.0"} />)) : (<PromotionCard style="main-color-1" deposited={0} registered={0} withdrawn={0} total={"0.0"} />)) : ""}
+          {promotion !== null ? (promotion["a_level2"]? (promotion.activities.referral.generation_track ? (promotion.activities.referral.generation_track[2] ?(<PromotionCard style="main-color-1" deposited={promotion.activities.referral.generation_track[2].gen_deposit?promotion.activities.referral.generation_track[2].gen_deposit.amount : "0.0"} registered={promotion.activities.referral.generation_track[2].registered?promotion.activities.referral.generation_track[2].registered.count : "0"} withdrawn={promotion.activities.referral.generation_track[2].gen_withdraw?promotion.activities.referral.generation_track[2].gen_withdraw.amount :"0.0"} total={promotion.activities.referral.generation_track[2].commission?promotion.activities.referral.generation_track[2].commission.amount : "0.0"} />) : (<PromotionCard style="main-color-1" deposited={0} registered={0} withdrawn={0} total={0} />)) : (<PromotionCard style="main-color-1" deposited={0} registered={0} withdrawn={0} total={"0.0"} />)) : (<PromotionCard style="main-color-1" deposited={0} registered={0} withdrawn={0} total={"0.0"} />)) : ""}
             
           </div>
 
@@ -215,7 +215,7 @@ const Promotion = () => {
 
 {activeButton1 === "level-3" ? (
           <div className="mt-3">
-          {promotion !== null ? (promotion["a_level3"]? (promotion.activities.referral.generation_track ? (promotion.activities.referral.generation_track[3] ?(<PromotionCard style="main-color-2" deposited={promotion.activities.referral.generation_track[3].gen_deposit?promotion.activities.referral.generation_track[3].gen_deposit.amount : "0.0"} registered={promotion.activities.referral.generation_track[3].registered?promotion.activities.referral.generation_track[3].registered.count : "0.0"} withdrawn={promotion.activities.referral.generation_track[3].gen_withdraw?promotion.activities.referral.generation_track[3].gen_withdraw.amount : "0.0"} total={promotion.activities.referral.generation_track[3].commission?promotion.activities.referral.generation_track[3].commission.amount : "0.0"} />) : (<PromotionCard style="main-color-2" deposited={0} registered={0} withdrawn={0} total={0} />)) : (<PromotionCard style="main-color-2" deposited={0} registered={0} withdrawn={0} total={"0.0"} />)) : (<PromotionCard style="main-color-2" deposited={0} registered={0} withdrawn={0} total={"0.0"} />)) : ""}
+          {promotion !== null ? (promotion["a_level3"]? (promotion.activities.referral.generation_track ? (promotion.activities.referral.generation_track[3] ?(<PromotionCard style="main-color-2" deposited={promotion.activities.referral.generation_track[3].gen_deposit?promotion.activities.referral.generation_track[3].gen_deposit.amount : "0.0"} registered={promotion.activities.referral.generation_track[3].registered?promotion.activities.referral.generation_track[3].registered.count : "0"} withdrawn={promotion.activities.referral.generation_track[3].gen_withdraw?promotion.activities.referral.generation_track[3].gen_withdraw.amount : "0.0"} total={promotion.activities.referral.generation_track[3].commission?promotion.activities.referral.generation_track[3].commission.amount : "0.0"} />) : (<PromotionCard style="main-color-2" deposited={0} registered={0} withdrawn={0} total={0} />)) : (<PromotionCard style="main-color-2" deposited={0} registered={0} withdrawn={0} total={"0.0"} />)) : (<PromotionCard style="main-color-2" deposited={0} registered={0} withdrawn={0} total={"0.0"} />)) : ""}
             
           </div>
 
