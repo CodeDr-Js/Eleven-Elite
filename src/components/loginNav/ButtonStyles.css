@@ -22,10 +22,10 @@
 /* Default button styles */
 .button {
   border: none;
-  padding: 10px 30px ;
+  padding: 0.625rem 1.875rem ;
   cursor: pointer;
   outline: none;
-  font-size: 17px;
+  font-size: 1.063rem;
   text-decoration: none;
 }
 
@@ -35,7 +35,7 @@
   /* Blue background color */
   color: #fff;
   /* White text color */
-  border-radius: 18px;
+  border-radius: 1.125rem;
   
   /* Rounded corners */
 }

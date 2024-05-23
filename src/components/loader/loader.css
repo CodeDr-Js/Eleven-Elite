@@ -28,9 +28,9 @@
         .loader1 {
             border: 3px solid #f3f3f3;
             border-radius: 50%;
-            border-top: 3px solid #3498db;
-            width: 40px;
-            height: 40px;
+            border-top: 0.188rem solid #3498db;
+            width: 2.5rem;
+            height: 2.5rem;
             animation: spin 2s linear infinite;
         }
         @keyframes spin {
@@ -38,5 +38,5 @@
             100% { transform: rotate(360deg); }
         }
         .message {
-            margin-top: 20px;
+            margin-top: 1.25rem;
         }

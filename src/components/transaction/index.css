@@ -3,7 +3,7 @@
 }
 
 .option-div option {
-    font-size: 12px;
+    font-size: 0.75rem;
     width: 100%;
     /* box-sizing: border-box; 
     margin-left: 200px; */
@@ -14,7 +14,7 @@
 input[type="date"]::-webkit-calendar-picker-indicator {
     background-color: #d9ff00; /* Example background color */
     color: white; /* Example text color */
-    padding: 4px; /* Example padding */
+    padding: 0.25rem; /* Example padding */
     border-radius: 50%; /* Example border radius */
     cursor: pointer; /* Show pointer cursor on hover */
   }

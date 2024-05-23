@@ -3,7 +3,7 @@
 /* Default button styles */
 .button {
   border: none;
-  padding: 10px 30px ;
+  padding: 0.625rem 1.875rem ;
   cursor: pointer;
   outline: none;
   text-decoration: none;
@@ -27,8 +27,8 @@
 
 .line {
   border-right: 3px solid gray;
-  height: 35px;
-  margin-top:11px;
+  height: 2.188rem;
+  margin-top:0.688rem;
   margin-left: 50%;
   position: absolute;
   opacity: 50%;

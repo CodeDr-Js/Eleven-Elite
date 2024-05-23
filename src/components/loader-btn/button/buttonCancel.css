@@ -11,12 +11,12 @@ body {
   background: #f5b40d;
   border: none;
   outline: none;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: #ffffff;
-  min-width: 200px;
-  min-height: 36px;
+  min-width: 12.5rem;
+  min-height: 2.25rem;
   cursor: pointer;
   outline: none;
 }
@@ -29,18 +29,18 @@ body {
 
 .form-login-btn {
   background-color: rgba(5, 74, 202, 0.575);
-  padding: 15px;
-  border-radius: 13px;
+  padding: 0.938rem;
+  border-radius: 0.813rem;
   color: whitesmoke;
-  font-size: 17px;
+  font-size: 1.063rem;
   opacity: 70%;
 
 }
 
 .spinner {
   background-color: transparent ; 
-  padding: 9px;
-  border-radius: 13px;
+  padding: 0.563rem;
+  border-radius: 0.813rem;
   display: flex;
   justify-content: center;
   align-items: center;

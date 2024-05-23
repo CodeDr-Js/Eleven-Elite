@@ -8,12 +8,12 @@ import BetSecure from "./betSecure";
 
 
 const SecureCard = () => {
-  const { result } = useContext(DataContext);
+  const { result, activities_g } = useContext(DataContext);
   const [loading1, setLoading1] = useState(false);
   const [loading2, setLoading2] = useState(false);
   const [loading3, setLoading3] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  //console.log(result);
+  console.log(result);
 
   const handleCloseModal = (e) => {
       setIsOpen(false);
@@ -62,7 +62,7 @@ const data2 = company_game2 ? JSON.parse(company_game.fields.data) : "";
 
 //console.log(company_game);
 
-//Assigning Data 1
+//Assigning Data 2
 status2 = data2 ? data2.response[0].fixture.status.short : "";
 timestamp2 = data2 ? data2.response[0].fixture.timestamp : "";
 home2 = data2 ? data2.response[0].teams.home.logo : "";
@@ -154,7 +154,7 @@ useEffect(()=>{
     <div>
       {loading1? (<Secure league={league1} home={homeName1} away={awayName1} time={convertTimestampToRealTime(timestamp1).split(" ")[1]} hflag={home1} aflag={away1} odd={odd1} score={score1} text={"Play 🎲"} FS={"fs-1"} e="bg-transparent" s="bg-transparent" onClick={handleClick} />): ""}
       {loading2? (<Secure league={league2} home={homeName2} away={awayName2} time={convertTimestampToRealTime(timestamp2).split(" ")[1]} hflag={home2} aflag={away2} odd={odd2} score={score2} text={"Play 🎲"} FS={"fs-1"} e="bg-transparent" s="bg-transparent" onClick={handleClick} />): ""}
-      {loading3? (<Secure league={league2} home={homeName2} away={awayName2} time={"Expired"} hflag={home2} aflag={away2} odd={odd2} score={score2} style={"disabled opacity-50"} FS={"fs-4 text-danger"} text={"Expired"} e="bg-warning" s="bg-success"  />): ""}
+      {loading3? (<Secure league={league1 || league2} home={homeName1 || homeName2} away={awayName1||awayName2} time={"Expired"} hflag={home1 || home2} aflag={away1 || away2} odd={odd1 || odd2} score={score1 || score2} style={"disabled "} FS={"fs-4 text-danger"} text={"Expired"} e="bg-warning" s="bg-success"  />): ""}
     
     </div>
 

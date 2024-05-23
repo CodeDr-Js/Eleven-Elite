@@ -58,16 +58,16 @@ const BetSecure = ({
   const [showLoader, setShowLoader] = useState(false);
 
   //Checking for token/Activ
-  useEffect(() => {
-    const token1 = token["auth-token"];
-    if (!token1) {
-    //  console.log("Your token is", token1);
-      navigate("/login");
-      setActiveToken("");
-    } else {
-      setActiveToken(token1);
-    }
-  }, []);
+//   useEffect(() => {
+//     const token1 = token["auth-token"];
+//     if (!token1) {
+//     //  console.log("Your token is", token1);
+//       navigate("/login");
+//       setActiveToken("");
+//     } else {
+//       setActiveToken(token1);
+//     }
+//   }, []);
 
   const [values, setValues] = useState({
     amount: "",

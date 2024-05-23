@@ -26,7 +26,7 @@
 .form-signup {}
 
 .form-username {
-  padding: 10px 0px 10px 50px;
+  padding: 0.625rem 0 0.625rem 3.125rem;
   color: whitesmoke;
 }
 
@@ -42,7 +42,7 @@
 }
 
 .form-password {
-  padding: 10px 20px 10px 50px;
+  padding: 0.625rem 1.25rem 0.625rem 3.125rem;
   color: whitesmoke;
 
 }
@@ -62,10 +62,10 @@
 
 .form-login-btn {
   background-color: rgba(5, 74, 202, 0.575);
-  padding: 15px;
-  border-radius: 13px;
+  padding: 0.938rem;
+  border-radius: 0.813rem;
   color: whitesmoke;
-  font-size: 17px;
+  font-size: 1.063rem;
   opacity: 70%;
 
 }
@@ -82,21 +82,21 @@ fa-5x,
 or fa-10x */
 #envelope {
   background-color: transparent;
-  padding-top: 0px;
-  padding-left: 8px;
+  padding-top: 0;
+  padding-left: 0.5rem;
 
 }
 
 #key {
   background-color: transparent;
-  padding-top: 18px;
-  padding-left: 8px;
+  padding-top: 1.125rem;
+  padding-left: 0.5rem;
 
 }
 
 
 #toggle2 {
   position: absolute;
-  margin-left: 295px;
-  margin-top: -30px;
+  margin-left: 18.438rem;
+  margin-top: -1.875rem;
 }

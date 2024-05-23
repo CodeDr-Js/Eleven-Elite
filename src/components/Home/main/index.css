@@ -1,7 +1,7 @@
 .main-div {
   background-color: rgb(2, 2, 92);
-  height: 120px;
-  padding: 10px 2px; 
+  height: 7.5rem;
+  padding: 0.625rem 0.125rem; 
   justify-content: space-around;
 
 }
@@ -11,9 +11,9 @@
 }
 .main-div-2 {
   background-color: rgb(2, 2, 92);
-  margin: -60px 0px 0 0px;
-    padding: 10px 2px;
-    height: 70px;
+  margin: -3.75rem 0 0 0;
+    padding: 0.625rem 0.125rem;
+    height: 4.375rem;
     justify-content: space-around;
 }
 
@@ -24,8 +24,8 @@
 
 .icon-div {
  /* background:linear-gradient(to right, rgba(255, 0, 0, 0.308), rgba(255, 255, 0, 0.63), rgba(25, 5, 141, 0.829)); */
-  height: 30px;
-  width: 30px;
+  height: 1.875rem;
+  width: 1.875rem;
   text-decoration: none;
   background-color: transparent;
   
@@ -33,23 +33,29 @@
 }
 
 .main-icon {
-  width: 30px;
+  width: 1.875rem;
   border-radius: 50%;
 background: radial-gradient(circle, rgba(255, 0, 0, 0.123), rgba(255, 255, 0, 0.13), rgba(26, 5, 141, 0.267));
 }
 
 .main-text {
-  font-size: 10px;
+  font-size: 0.625rem;
   font-family: monospace;
   /* font-weight: bold; */
-  margin-top: 3px;
+  margin-top: 0.188rem;
 
 }
 
 .line-height {
-  line-height: 2px;
+  line-height: 0.125rem;
 }
 
 .opacity {
   color: rgba(255, 255, 255, 0.438);
 }
+
+/* .fire {
+
+margin-left: 4.6rem;
+
+} */

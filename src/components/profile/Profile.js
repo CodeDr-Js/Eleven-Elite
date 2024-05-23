@@ -98,7 +98,7 @@ const Profile = () => {
     navigator.clipboard
       .writeText(text)
       .then(() => {
-        setMessage("Wallet address successfully copied to clipboard");
+        setMessage("Successfully copied to clipboard");
       })
       .catch((err) => {
         setMessage("Failed to copy text");

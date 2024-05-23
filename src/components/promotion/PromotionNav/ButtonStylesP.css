@@ -6,7 +6,7 @@
   /* Blue background color */
   color: #fff;
   /* White text color */
-  border-radius: 20px;
+  border-radius: 1.25rem;
   
 
   
@@ -18,10 +18,10 @@
 /* New */
 .wg-button {
   border: none;
-  padding: 7px 25px;
+  padding: 0.438rem 1.563rem;
   cursor: pointer;
   outline: none;
   text-decoration: none;
   text-align: center;
-  font-size: 13px;
+  font-size: 0.813rem;
 }

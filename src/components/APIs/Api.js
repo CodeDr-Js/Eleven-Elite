@@ -53,7 +53,7 @@ const DataProvider = ({ children }) => {
 
   useEffect(()=> {
     checkToken();
-  }, [])
+  }, [token])
   
   useEffect(() => {
     dbFetch()
@@ -383,9 +383,9 @@ const DataProvider = ({ children }) => {
    
     //console.log("Token sending....", activeToken);
    
-    if (activeToken) {
+    if (activeToken || token["auth-token"]) {
       //console.log("token", activeToken);
-      API.retrieveData(activeToken).then((result) => {
+      API.retrieveData(activeToken || token["auth-token"]).then((result) => {
         //console.log("Running API retrieve always",result);
         //console.log("Running API retrieve always");
         if(result.success || result.message === "success") {

@@ -1,7 +1,7 @@
 .history-card-div {
-  margin: 20px 20px;
-  padding: 18px 20px;
-  line-height: 13px;
+  margin: 1.25rem 1.25rem;
+  padding: 1.125rem 1.25rem;
+  line-height: 0.813rem;
 }
 
 .anti-card-div {
@@ -10,8 +10,8 @@
 }
 
 .anti-percent {
-  font-size: 17px;
-  margin-top: 1px;
+  font-size: 1.063rem;
+  margin-top: 0.063rem;
 }
 
 .stake-div {
@@ -19,13 +19,13 @@
 }
 
 .history-card-main-div {
-  margin-top: 140px;
+  margin-top: 8.75rem;
 }
 
 .cancel-btn{
-  height: 25px;
-  padding: 0px 10px;
-  margin-top: -15px;
+  height: 1.563rem;
+  padding: 0 0.625rem;
+  margin-top: -0.938rem;
 }
 
 .cancel-main-div {
@@ -33,6 +33,6 @@
 }
 
 .error-cancel {
- padding: 20px;
+ padding: 1.25rem;
 
 }

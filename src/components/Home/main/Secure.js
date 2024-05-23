@@ -45,9 +45,15 @@ const Secure = ({home, away, league, hflag, aflag, odd, score, time, style, text
               style={{ width: "30%", height: "50px" }}
             >
               <div className="bg-transparent mt-3  d-flex flex-column align-items-center line-height">
-                <p className=" bg-transparent ps-2">
-                  Profit <span className="text-white bg-transparent">🔥</span>
+                <div className='d-flex bg-transparent'>
+
+                <p className=" bg-transparent ps-3">
+                  Profit 
+                  
                 </p>
+                <p className=" bg-transparent ps-2">🔥</p>
+                </div>
+
                 <p className=" bg-transparent">{odd}%</p>
               </div>
             </div>

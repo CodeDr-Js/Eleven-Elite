@@ -31,6 +31,17 @@ const Index = () => {
   const [loading, setLoading] = useState(false)
   const [activeButton, setActiveButton] = useState("")
   
+  //Checking for token/Activ
+  useEffect(() => {
+    const token1 = token["auth-token"];
+    if (!token1) {
+      //console.log("Your token is", token1);
+      navigate("/login");
+      setActiveToken("")
+    } else {
+      setActiveToken(token1)
+    }
+  }, []);
 
   useEffect(() => {
     if(result) {
@@ -45,12 +56,12 @@ const Index = () => {
     }
   },[result])
 
-  setTimeout(() => {
-    if(loading){
-      setLoading(false);
-    }
-  }, 10000);
-
+  // setTimeout(() => {
+  //   if(loading){
+  //     setLoading(false);
+  //   }
+  // }, 10000);
+  
   useEffect(()=> {setLoadings(true) 
     if(!Array.isArray(activities_g)){
     setLoadings(false)
@@ -58,21 +69,10 @@ const Index = () => {
 
 
 
-  //Checking for token/Activ
-  useEffect(() => {
-    const token1 = token["auth-token"];
-    if (!token1) {
-      //console.log("Your token is", token1);
-      navigate("/login");
-      setActiveToken("")
-    } else {
-      setActiveToken(token1)
-    }
-  }, []);
   return (
     <>
     {activeButton === "" ? (<div className="main1">
-      {loading? (<Reward setLoading={setLoading} bonus={result? result.bonus.amount : ""  }/>):""}
+      {loading? (<Reward setLoading={setLoading} bonus={result.bonus? result.bonus.amount : ""  }/>):""}
       {loadings?(<Loader/>):""}
       <NavBar />
       {/* <Ad /> */}

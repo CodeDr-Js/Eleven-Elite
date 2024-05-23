@@ -12,7 +12,7 @@
   width: 100px;
   /* Adjust the size of your logo as needed */
   height: auto;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
   /* Add some space between the logo and loader */
 }
 
@@ -22,30 +22,30 @@
   /* border-top: 8px solid #3498db; */
   /* Blue */
   border-radius: 50%;
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
   animation: spin 2s linear infinite;
-  margin-top: 20px;
+  margin-top: 1.25rem;
   
 }
 
 .logo-text {
-  margin-top: -40px;
-  line-height: 0px;
+  margin-top: -2.5rem;
+  line-height: 0;
   text-align: center;
 }
 
 .logo-text h5 {
   font-family: cursive;
   font-weight: bold;
-  font-size: 15px;
-  letter-spacing: 15px;
-  padding-left: 17px;
+  font-size: 0.938rem;
+  letter-spacing: 0.938rem;
+  padding-left: 1.063rem;
 
 }
 
 .logo-text span small {
-  font-size: 10px;
+  font-size: 0.625rem;
   font-style: italic;
   
 }

@@ -23,6 +23,7 @@ Referral code
 
 Password */
 const Register = () => {
+  const navigate = useNavigate();
   const {setActiveToken} = useContext(DataContext);
   const [activeButton, setActiveButton] = useState("signup");
   const [token, setToken] = useCookies(["auth-token"]);
@@ -51,14 +52,14 @@ const Register = () => {
     if (token1) {
    //   console.log("Your token is", token1);
       navigate("/");
-      setActiveToken('')
-    } else {
       setActiveToken(token1)
+    } else {
+      
     }
   }, []);
 
   //console.log(values);
-  const navigate = useNavigate();
+  
 
   const handleRequest = (response) => {
    // console.log(response);
@@ -106,6 +107,7 @@ const Register = () => {
      //     console.log(result.message);
      //     console.log(success);
           navigate("/");
+          //window.location.href = "/"
           // setTimeout(() => {
 
           // }, 2000);

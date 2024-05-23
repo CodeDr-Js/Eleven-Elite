@@ -39,9 +39,9 @@ const Main = () => {
           setActiveToken("");
           navigate("/login");
         } else {
-          removeToken("auth-token");
-          setActiveToken("");
-          navigate("/login");
+          // removeToken("auth-token");
+          // setActiveToken("");
+          // navigate("/login");
         }
       });
     }

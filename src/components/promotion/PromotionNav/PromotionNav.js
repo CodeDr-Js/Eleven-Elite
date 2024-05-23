@@ -5,7 +5,7 @@ import "../../color/color.css";
 
 function SettleNav({ activeButton, setActiveButton }) {
   return (
-    <div className="mt-2 ps-4 pe-4 d-flex justify-content-between">
+    <div className="mt-2  ps-4 pe-4 d-flex justify-content-between">
       <div className="text-center wg">
         <button
           className={
