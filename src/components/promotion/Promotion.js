@@ -144,7 +144,7 @@ const Promotion = () => {
                 {promotion !== null ? (
                   promotion.activities.referral.earning_today.daily.amount ? (
                     <p className="bg-transparent text-warning">
-                      {promotion.activities.referral.earning_today.daily.amount}
+                      {promotion.activities.referral.earning_today.daily.amount.toFixed(2)}
                     </p>
                   ) : (
                     <p className="bg-transparent text-warning">0.0 USD</p>
@@ -161,7 +161,7 @@ const Promotion = () => {
                     {promotion !== null ? (
                       promotion.activities.referral.commissions.earnings ? (
                         <p className="bg-transparent ">
-                          {promotion.activities.referral.commissions.earnings}{" "}
+                          {promotion.activities.referral.commissions.earnings.toFixed(2)}{" "}
                           USD
                         </p>
                       ) : (
@@ -177,7 +177,7 @@ const Promotion = () => {
                     {promotion !== null ? (
                       promotion.current_earning ? (
                         <p className="bg-transparent txt-color fw-bold ">
-                          {promotion.current_earning} USD
+                          {promotion.current_earning.toFixed(2)} USD
                         </p>
                       ) : (
                         <p className="bg-transparent txt-color fw-bold ">
@@ -262,7 +262,7 @@ const Promotion = () => {
                             promotion.activities.referral.generation_track[1]
                               .gen_deposit
                               ? promotion.activities.referral
-                                  .generation_track[1].gen_deposit.amount
+                                  .generation_track[1].gen_deposit.amount.toFixed(2)
                               : "0.0"
                           }
                           registered={
@@ -276,14 +276,14 @@ const Promotion = () => {
                             promotion.activities.referral.generation_track[1]
                               .gen_withdraw
                               ? promotion.activities.referral
-                                  .generation_track[1].gen_withdraw.amount
+                                  .generation_track[1].gen_withdraw.amount.toFixed(2)
                               : "0.0"
                           }
                           total={
                             promotion.activities.referral.generation_track[1]
                               .commission
                               ? promotion.activities.referral
-                                  .generation_track[1].commission.amount
+                                  .generation_track[1].commission.amount.toFixed(2)
                               : "0.0"
                           }
                         />
@@ -334,7 +334,7 @@ const Promotion = () => {
                             promotion.activities.referral.generation_track[2]
                               .gen_deposit
                               ? promotion.activities.referral
-                                  .generation_track[2].gen_deposit.amount
+                                  .generation_track[2].gen_deposit.amount.toFixed(2)
                               : "0.0"
                           }
                           registered={
@@ -348,14 +348,14 @@ const Promotion = () => {
                             promotion.activities.referral.generation_track[2]
                               .gen_withdraw
                               ? promotion.activities.referral
-                                  .generation_track[2].gen_withdraw.amount
+                                  .generation_track[2].gen_withdraw.amount.toFixed(2)
                               : "0.0"
                           }
                           total={
                             promotion.activities.referral.generation_track[2]
                               .commission
                               ? promotion.activities.referral
-                                  .generation_track[2].commission.amount
+                                  .generation_track[2].commission.amount.toFixed(2)
                               : "0.0"
                           }
                         />
@@ -406,7 +406,7 @@ const Promotion = () => {
                             promotion.activities.referral.generation_track[3]
                               .gen_deposit
                               ? promotion.activities.referral
-                                  .generation_track[3].gen_deposit.amount
+                                  .generation_track[3].gen_deposit.amount.toFixed(2)
                               : "0.0"
                           }
                           registered={
@@ -420,14 +420,14 @@ const Promotion = () => {
                             promotion.activities.referral.generation_track[3]
                               .gen_withdraw
                               ? promotion.activities.referral
-                                  .generation_track[3].gen_withdraw.amount
+                                  .generation_track[3].gen_withdraw.amount.toFixed(2)
                               : "0.0"
                           }
                           total={
                             promotion.activities.referral.generation_track[3]
                               .commission
                               ? promotion.activities.referral
-                                  .generation_track[3].commission.amount
+                                  .generation_track[3].commission.amount.toFixed(2)
                               : "0.0"
                           }
                         />
