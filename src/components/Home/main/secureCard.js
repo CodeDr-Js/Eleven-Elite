@@ -33,7 +33,7 @@ const company_game = Array.isArray(result.company_game) ? result.company_game[0]
 //console.log(company_game);
 
 const data1 = company_game ? JSON.parse(company_game.fields.data) : "";
-//console.log(data1);
+console.log("data1 is:", data1);
 
 
 //Assigning Data 1
@@ -57,8 +57,9 @@ id1 = company_game ? company_game.fields.fixture: "";
 
 const company_game2 = Array.isArray(result.company_game) ? result.company_game[1] : "";
 
-const data2 = company_game2 ? JSON.parse(company_game.fields.data) : "";
-//console.log(data2);
+const data2 = company_game2 ? JSON.parse(company_game2.fields.data) : "";
+console.log("company game 2 is:", company_game2, "1 is", company_game);
+console.log("data2 is:", data2);
 
 //console.log(company_game);
 
@@ -128,7 +129,7 @@ function convertTimestampToRealTime(timestamp) {
 
 const userDate = Date.now();
 
-//console.log(userDate, convertTimestampToRealTime(timestamp1), timestamp1 * 1000, timestamp2 * 1000);
+console.log(userDate, convertTimestampToRealTime(timestamp1), timestamp1 * 1000, timestamp2 * 1000);
 
 const newTimestamp1 = timestamp1 * 1000;
 const newTimestamp2 = timestamp2 * 1000;
@@ -154,7 +155,7 @@ useEffect(()=>{
     <div>
       {loading1? (<Secure league={league1} home={homeName1} away={awayName1} time={convertTimestampToRealTime(timestamp1).split(" ")[1]} hflag={home1} aflag={away1} odd={odd1} score={score1} text={"Play 🎲"} FS={"fs-1"} e="bg-transparent" s="bg-transparent" onClick={handleClick} />): ""}
       {loading2? (<Secure league={league2} home={homeName2} away={awayName2} time={convertTimestampToRealTime(timestamp2).split(" ")[1]} hflag={home2} aflag={away2} odd={odd2} score={score2} text={"Play 🎲"} FS={"fs-1"} e="bg-transparent" s="bg-transparent" onClick={handleClick} />): ""}
-      {loading3? (<Secure league={league1 || league2} home={homeName1 || homeName2} away={awayName1||awayName2} time={"Expired"} hflag={home1 || home2} aflag={away1 || away2} odd={odd1 || odd2} score={score1 || score2} style={"disabled "} FS={"fs-4 text-danger"} text={"Expired"} e="bg-warning" s="bg-success"  />): ""}
+      {loading3? (<Secure league={league1 && league2} home={homeName1 || homeName2} away={awayName1||awayName2} time={"Expired"} hflag={home1 || home2} aflag={away1 || away2} odd={odd1 || odd2} score={score1 || score2} style={"disabled "} FS={"fs-4 text-danger"} text={"Expired"} e="bg-warning" s="bg-success"  />): ""}
     
     </div>
 

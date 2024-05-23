@@ -14,11 +14,12 @@ import Register from "../Register/register";
 
 
 const Login = () => {
-  const {setActiveToken} = useContext(DataContext);
+  const {setActiveToken, activeToken } = useContext(DataContext);
   const [activeButton, setActiveButton] = useState('login');
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [password, setPassword] = useState('');
 
+  console.log("Token is: ",activeToken);
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };

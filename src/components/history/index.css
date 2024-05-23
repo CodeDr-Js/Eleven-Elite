@@ -36,3 +36,13 @@
  padding: 1.25rem;
 
 }
+
+@media screen and (max-width: 380px) { /* Adjust breakpoint as needed */
+  .wg-card {
+   font-size: 14px;
+   
+  }
+  .d-size{
+    width: 1rem;
+  }
+}

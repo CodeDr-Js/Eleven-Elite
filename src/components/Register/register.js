@@ -24,7 +24,7 @@ Referral code
 Password */
 const Register = () => {
   const navigate = useNavigate();
-  const {setActiveToken} = useContext(DataContext);
+  const {setActiveToken, activeToken} = useContext(DataContext);
   const [activeButton, setActiveButton] = useState("signup");
   const [token, setToken] = useCookies(["auth-token"]);
   const [error, setError] = useState(null);
@@ -32,6 +32,8 @@ const Register = () => {
 
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [password, setPassword] = useState('');
+
+  console.log(activeToken);
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
@@ -45,6 +47,15 @@ const Register = () => {
     invited: "",
     password: "",
   });
+  console.log(values);
+
+  const [login, setLogin] = useState({
+    username: values.username,
+    password: values.password,
+  });
+
+  console.log(login);
+  
 
   //Checking for token/Activ
   useEffect(() => {
@@ -101,12 +112,19 @@ const Register = () => {
         // }
         if (result.success) {
           //handleRequest(result);
-          setToken("auth-token", result.token);
-          setActiveToken(result.token)
+          API.loginUser({username: values.username, password: values.password})
+          .then((result) => {
+            if(result.success){
+              setToken("auth-token", result.token);
+              setActiveToken(result.token)
+              navigate("/");
+            } 
+          })
+          .catch((err)=> console.log(err));
           setSuccess(result.message);
      //     console.log(result.message);
      //     console.log(success);
-          navigate("/");
+         
           //window.location.href = "/"
           // setTimeout(() => {
 

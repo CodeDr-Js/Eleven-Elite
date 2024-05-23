@@ -31,6 +31,7 @@ const Index = () => {
   const [loading, setLoading] = useState(false)
   const [activeButton, setActiveButton] = useState("")
   
+  console.log("Token:",activeToken);
   //Checking for token/Activ
   useEffect(() => {
     const token1 = token["auth-token"];
@@ -61,7 +62,7 @@ const Index = () => {
   //     setLoading(false);
   //   }
   // }, 10000);
-  
+
   useEffect(()=> {setLoadings(true) 
     if(!Array.isArray(activities_g)){
     setLoadings(false)

@@ -25,12 +25,12 @@ const DataProvider = ({ children }) => {
   const [allData, setAllData] = useState([]);
   const [checkData, setCheckData] = useState();
   const [page, setPage] = useState(1);
-  const [activities_g, setActivities_g] = useState({});
-  const [openBet_g, setOpenBet_g] = useState({});
-  const [settled_g, setSettled_g] = useState({});
-  const [user_g, setUser_g] = useState({});
+  const [activities_g, setActivities_g] = useState([]);
+  const [openBet_g, setOpenBet_g] = useState([]);
+  const [settled_g, setSettled_g] = useState([]);
+  const [user_g, setUser_g] = useState([]);
   const [activeToken, setActiveToken] = useState("");
-  const [result, setResult] = useState({});
+  const [result, setResult] = useState([]);
   const [notification, setNotification] = useState(null);
   const [promotion, setPromotion] = useState(null);
   const [invite , setInvite] = useState(null);

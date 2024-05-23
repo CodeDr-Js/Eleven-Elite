@@ -44,7 +44,7 @@ const HistoryHeader = ({loading, settled, openBet, setOpenBet, setSettled, activ
           </div>
           <div className="ms-auto wg-card d-flex" >
             <div>
-            <img src={dollar} alt="Logo" className="" style={{ width: "33px" }} />
+            <img src={dollar} alt="Logo" className="d-size" style={{ width: "2.063rem" }} />
             </div>
 
             {!Array.isArray(activities_g) ? (<p className='ps-2 pt-1 fw-bold '>$  {activities_g.wallet.bal_info.bal.toFixed(2)}</p>) : "" }
