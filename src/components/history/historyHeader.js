@@ -40,7 +40,7 @@ const HistoryHeader = ({loading, settled, openBet, setOpenBet, setSettled, activ
   
           </div>
           <div className=" d-flex justify-content-center ms-5 ps-5 wg-card ">
-            <h2 className="text-center fs-2 ms-3">History</h2>
+            <h2 className="text-center fs-2 ms-3 wg-card-1">History</h2>
           </div>
           <div className="ms-auto wg-card d-flex" >
             <div>

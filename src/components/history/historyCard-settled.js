@@ -141,10 +141,10 @@ const HistoryCardSettled = ({loading, settled,  }) => {
       </div>
 
       <div className="main-color d-flex">
-        <p className="main-color me-auto opacity-75 ">
+        <p className="main-color me-auto opacity-75 wg-card ">
         {leagueShortName(item.market.teams.home)} - {leagueShortName(item.market.teams.away)}
         </p>
-        <small className="main-color pt-1 opacity-50 ">
+        <small className="main-color pt-1 opacity-50 ps">
         {convertTimestampToRealTime(item.market.timestamp)}
         </small>
       </div>
@@ -155,9 +155,9 @@ const HistoryCardSettled = ({loading, settled,  }) => {
           className=" u-color d-flex rounded-3 ps-2 pe-2 pt-2 anti-card-div"
           style={{ height: "30px" }}
         >
-          <p className="u-color">Anti</p>
-          <p className="u-color">{item.market.pick}</p>
-            <p className="u-color fw-bold anti-percent">{item.market.odd}%</p>
+          <p className="u-color text-card">Anti</p>
+          <p className="u-color text-card">{item.market.pick}</p>
+            <p className="u-color text-card fw-bold anti-percent">{item.market.odd}%</p>
         </div>
 
         <div className="main-color pt-3 d-flex ">
