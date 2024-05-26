@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { DataContext } from "../../APIs/Api";
 import Bet from "./bet";
-import { useCookies } from "react-cookie";
+import Cookies  from "js-cookie";
 import { padNum } from "../../qickfun/qickfun";
 import NoData from "../../noData/noData";
 
@@ -17,19 +17,18 @@ const Odd = () => {
   const { id } = useParams();
   const { data, allData, activeToken, setActiveToken, activities_g, user } =
     useContext(DataContext);
-  const [token] = useCookies(["auth-token"]);
+  const token = Cookies.get("auth-token");
 
   //Checking for token/Activ
   useEffect(() => {
-    const token1 = token["auth-token"];
-    if (!token1) {
-      console.log("Your token is", token1);
+    if (!token) {
+      console.log("Your token is", token);
       navigate("/login");
       setActiveToken("");
     } else {
-      setActiveToken(token1)
+      setActiveToken(token)
     }
-  }, []);
+  }, [token]);
 
   const [modalData, setModalData] = useState({});
 

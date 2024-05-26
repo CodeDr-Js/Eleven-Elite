@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import "./reward.css";
-import { useCookies } from 'react-cookie';
+import Cookies from 'js-cookie';
 import { API } from '../api-service/api-service';
 import { useNavigate } from 'react-router-dom';
 import Reward from './reward';
@@ -16,7 +16,7 @@ const RewardCoupon = ({
   }) => {
     const {setActivities_g} = useContext(DataContext);
     const navigate = useNavigate();
-    const [token, setToken, removeToken] = useCookies(["auth-token"]);
+    const token = Cookies.get("auth-token");
     const [values, setValues] = useState({
       gift_code: "",
 
@@ -30,14 +30,14 @@ const RewardCoupon = ({
   
   //  console.log(values);
     
-    if(!token["auth-token"]){
-        removeToken("auth-token");
+    if(!token){
+        Cookies.remove("auth-token")
         navigate("/login")
     }
     const handleCloseModal = () => {
         setSuccess(null)
         setIsLoadingPin(true);
-        API.redeem_gift(values, token["auth-token"])
+        API.redeem_gift(values, token)
         .then((result) => {
             setIsLoadingPin(false);
             // setSuccess(3);

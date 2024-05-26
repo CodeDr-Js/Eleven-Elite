@@ -6,7 +6,7 @@ import usdt from "../../../assets/icons/usdt.png";
 import tether from "../../../assets/icons/tether.png";
 import dollar from "../../../assets/icons/dollar.png";
 import usd from "../../../assets/icons/usd.png";
-import { useCookies } from "react-cookie";
+import Cookies  from "js-cookie";
 import { API } from "../../api-service/api-service";
 import ErrorCard from "./errorCard";
 import SuccessCard from "./successCard";
@@ -29,37 +29,36 @@ const Bet = ({
   const { id } = useParams();
   const { data, allData, activeToken, setActivities_g, setActiveToken, activities, user } =
     useContext(DataContext);
-  const [token, setToken, removeToken] = useCookies(["auth-token"]);
+  const token = Cookies.get("auth-token");
 
   //handling logout token
-  const handleLogout = async () => {
-    try {
-      API.logout(token["auth-token"]).then((result) => {
-        console.log(result);
-        if (result.success) {
-          removeToken("auth-token");
-        } else {
-          removeToken("auth-token");
-        }
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const handleLogout = async () => {
+  //   try {
+  //     API.logout(token).then((result) => {
+  //       console.log(result);
+  //       if (result.success) {
+  //         removeToken("auth-token");
+  //       } else {
+  //         removeToken("auth-token");
+  //       }
+  //     });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   const [showLoader, setShowLoader] = useState(false);
 
   //Checking for token/Activ
   useEffect(() => {
-    const token1 = token["auth-token"];
-    if (!token1) {
-      console.log("Your token is", token1);
+    if (!token) {
+      console.log("Your token is", token);
       navigate("/login");
       setActiveToken("")
     } else {
-      setActiveToken(token1)
+      setActiveToken(token)
     }
-  }, []);
+  }, [token]);
 
   const [values, setValues] = useState({
     amount: "",
@@ -120,7 +119,7 @@ const Bet = ({
     }
 
   
-          API.paynow(dbValues, token["auth-token"])
+          API.paynow(dbValues, token)
             .then((result) => {
               console.log(result);
               setShowLoader(false);
@@ -129,7 +128,7 @@ const Bet = ({
                 setSuccess(result.message);
                 //setValues((values.amount = ""));
               } else if(result.detail) {
-                removeToken("auth-token");
+                Cookies.remove("auth-token");
                 navigate("/login");
                 //setValues(values.amount = "")
               } else {

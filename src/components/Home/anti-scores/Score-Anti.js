@@ -9,7 +9,7 @@ import "./index.css";
 import axios from "axios";
 import { DataContext } from "../../APIs/Api";
 import { useNavigate } from "react-router-dom";
-import { useCookies } from "react-cookie";
+import Cookies  from "js-cookie";
 import { CalculateStartDiff } from "../../qickfun/qickfun";
 import NoData from "../../noData/noData";
 import Loader from "../../loader/loader";
@@ -21,21 +21,21 @@ const ScoreAnti = () => {
   const {activities_g, data, allData, activeToken, setActiveToken, activities, user, checkData, setCheckDate, loadingNew, setLoadingNew } =
     useContext(DataContext);
 
-  const [token] = useCookies(["auth-token"]);
+  const token = Cookies.get("auth-token");
   console.log(activities_g);
 
   //Checking for token/Activ
   useEffect(() => {
-    const token1 = token["auth-token"];
-    if (!token1) {
-      console.log("Your token is", token1);
+    
+    if (!token) {
+      console.log("Your token is", token);
       navigate("/login");
       setActiveToken("")
     } else {
-      setActiveToken(token1)
+      setActiveToken(token)
     }
 
-  }, []);
+  }, [token]);
 
   console.log(allData);
   console.log(checkData);

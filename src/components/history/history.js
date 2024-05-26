@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import HistoryHeader from './historyHeader';
 import { API } from "../api-service/api-service";
-import { useCookies } from "react-cookie";
+import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import SettledNav from "./settledNav";
 import { DataContext } from "../APIs/Api";
@@ -12,7 +12,7 @@ import { DataContext } from "../APIs/Api";
 const History = () => {
   const navigate = useNavigate();
   const {setActivities_g, activities_g, setActiveToken} = useContext(DataContext)
-  const [token, setToken, removeToken] = useCookies(["auth-token"]);
+  const token = Cookies.get("auth-token");
   const [activities, setActivities] = useState({});
   const [settled, setSettled] = useState({});
   const [openBet, setOpenBet] = useState({});
@@ -21,11 +21,10 @@ const History = () => {
 
  // console.log(activities_g);
   function getUserData() {
-    const token1 = token["auth-token"];
-    if (token1) {
+    if (token) {
    //   console.log("token", token1);
-      setActiveToken(token1)
-      API.retrieveData(token1)
+      setActiveToken(token)
+      API.retrieveData(token)
         .then((result) => {
           console.log(result);
           setLoading(false);
@@ -36,7 +35,8 @@ const History = () => {
             setOpenBet(result.activities.bet.openbet);
             setUser(result.user);
           } else if (!result.success) {
-            removeToken("auth-token");
+            // removeToken("auth-token");
+            Cookies.remove("auth-token");
             navigate("/login");
           }
         })

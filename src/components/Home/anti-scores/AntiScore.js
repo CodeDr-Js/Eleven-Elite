@@ -4,7 +4,7 @@ import ScoreAnti from "./Score-Anti";
 // import Footer from "./footer";
 import { DataContext } from "../../APIs/Api";
 import { useNavigate } from "react-router-dom";
-import { useCookies } from "react-cookie";
+import Cookies  from "js-cookie";
 import "../../largeScreen/large.css";
 import Loader from "../../loader/loader";
 
@@ -12,7 +12,7 @@ const AntiScore = () => {
   const navigate = useNavigate();
    const { data, allData, activeToken, activities_g, user } =
      useContext(DataContext);
-  const [token] = useCookies(["auth-token"]);
+  const token = Cookies.get("auth-token");
   const [loadings, setLoadings] = useState(false);
   useEffect(() => {
     setLoadings(true);
@@ -23,13 +23,13 @@ const AntiScore = () => {
 
   //Checking for token/Activ
   useEffect(() => {
-    const token1 = token["auth-token"];
-    if (!token1) {
+    
+    if (!token) {
 //      console.log("Your token is", token1);
       navigate("/login");
     } else {
     }
-  }, []);
+  }, [token]);
    
   return (
     <div>

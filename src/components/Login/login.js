@@ -7,7 +7,8 @@ import LoginNav from "../loginNav/loginNav";
 import "../fontawesome/css/all.css";
 import axios from "axios";
 import { API } from "../api-service/api-service";
-import { useCookies } from "react-cookie";
+//import { useCookies } from "react-cookie";
+import Cookies from "js-cookie";
 import { DataContext } from "../APIs/Api";
 import Button from "../loader-btn/loader-btn";
 import Register from "../Register/register";
@@ -19,7 +20,7 @@ const Login = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [password, setPassword] = useState('');
 
-  console.log("Token is: ",activeToken);
+  // console.log("Token is: ",activeToken);
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
@@ -41,18 +42,17 @@ const Login = () => {
   //    }
   //  }, []);
 
-  const [token, setToken] = useCookies(["auth-token"]);
+ // const [token, setToken] = useCookies(["auth-token"]);
+  const token1 = Cookies.get("auth-token");
    useEffect(() => {
-     const token1 = token["auth-token"];
      if (token1) {
 //       console.log("Your token is", token1);
        navigate("/");
        setActiveToken(token1)
      } else {
-      
-      setActiveToken("")
+    
      }
-   }, []);
+   }, [token1]);
 
  // console.log(values);
 
@@ -72,7 +72,8 @@ const Login = () => {
       .then((result) => {
         setShowLoader(false);
         if (result.success) {
-          setToken("auth-token", result.token);
+          Cookies.set("auth-token", result.token, { expires: 7 })
+          //setToken("auth-token", result.token);
           setActiveToken(result.token)
           navigate("/");
         } else {

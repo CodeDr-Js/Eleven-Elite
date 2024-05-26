@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import "./index.css"
-import { useCookies } from "react-cookie";
+//import { useCookies } from "react-cookie";
 import { useNavigate } from 'react-router-dom';
 
 
@@ -11,7 +11,7 @@ const navigate = useNavigate();
 
 
 
-  const [token,setToken, removeToken] = useCookies(["auth-token"]);
+  //const [token,setToken, removeToken] = useCookies(["auth-token"]);
   
 
   

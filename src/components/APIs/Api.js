@@ -6,7 +6,8 @@ import axios from "axios";
 //   IDBConfig,
 //   saveStoreObj, // Import the new function
 // } from "./index_db";
-import { useCookies } from "react-cookie";
+//import { useCookies } from "react-cookie";
+import Cookies from "js-cookie";
 import { API } from "../api-service/api-service";
 import { useNavigate } from "react-router-dom";
 import { getRealTimeDate, range } from "../qickfun/qickfun";
@@ -20,14 +21,15 @@ const webWorker = new WebWorker(worker);
 const DataContext = createContext();
 const DataProvider = ({ children }) => {
   const navigate = useNavigate();
-  const [token,setToken, removeToken] = useCookies(["auth-token"]);
+  //const [token,setToken, removeToken] = useCookies(["auth-token"]);
   const [data, setData] = useState([]);
   const [allData, setAllData] = useState([]);
   const [checkData, setCheckData] = useState();
   const [page, setPage] = useState(1);
   const [activities_g, setActivities_g] = useState([]);
   const [openBet_g, setOpenBet_g] = useState([]);
-  const [settled_g, setSettled_g] = useState([]);
+  const [settled_g, setSettled_g] = useState
+  ([]);
   const [user_g, setUser_g] = useState([]);
   const [activeToken, setActiveToken] = useState("");
   const [result, setResult] = useState([]);
@@ -37,15 +39,17 @@ const DataProvider = ({ children }) => {
   const [pending, setPending] = useState(null);
   const [loadingNew, setLoadingNew] = useState();
 
- // console.log(allData);
+ console.log("all results is:", result);
+  
+  const token1 = Cookies.get("auth-token");
   
   const checkToken = () => {
-    const token1 = token["auth-token"];
+    // const token1 = token["auth-token"];
     if (token1 ) {
       //console.log("token", token1);
       setActiveToken(token1)
     } else {
-      setActiveToken("");
+      //setActiveToken("");
     }
 
   }
@@ -53,7 +57,7 @@ const DataProvider = ({ children }) => {
 
   useEffect(()=> {
     checkToken();
-  }, [token])
+  }, [token1])
   
   useEffect(() => {
     dbFetch()
@@ -65,22 +69,22 @@ const DataProvider = ({ children }) => {
 
   //console.log(data, allData);
   //handling logout token
-   const handleLogout = async () => {
-     try {
-      API.logout(token['auth-token'])
-      .then((result)=> {
-        console.log(result);
-        if(result.success) {
-          removeToken("auth-token");
-        } else {
-           removeToken("auth-token");
-        }
-      })
-     } catch (error) {
-        console.log(error);
-     }
-     ;
-   };
+  //  const handleLogout = async () => {
+  //    try {
+  //     API.logout(token['auth-token'])
+  //     .then((result)=> {
+  //       console.log(result);
+  //       if(result.success) {
+  //         removeToken("auth-token");
+  //       } else {
+  //          removeToken("auth-token");
+  //       }
+  //     })
+  //    } catch (error) {
+  //       console.log(error);
+  //    }
+  //    ;
+  //  };
   // const dbFetch = async () => {
   //   try {
   //     // Check if data is found in IndexedDB storage
@@ -380,17 +384,20 @@ const DataProvider = ({ children }) => {
   // }
 
   async function getUserData() {
+    const token = Cookies.get("auth-token") 
    
     //console.log("Token sending....", activeToken);
    
-    if (activeToken || token["auth-token"]) {
+    if (activeToken || token) {
       //console.log("token", activeToken);
-      API.retrieveData(activeToken || token["auth-token"]).then((result) => {
+      API.retrieveData(activeToken || token).then((result) => {
         //console.log("Running API retrieve always",result);
         //console.log("Running API retrieve always");
         if(result.success || result.message === "success") {
 
           setResult(result); 
+         // setToken("auth-token", result.token);
+          
           setActivities_g(result.activities);
           setUser_g(result.user);
           setSettled_g(result.activities.bet.settled);
@@ -399,7 +406,8 @@ const DataProvider = ({ children }) => {
           //console.log("removing token");
           navigate("/login")
           setActiveToken("");
-          removeToken("auth-token");
+          Cookies.remove("auth-token");
+          // removeToken("auth-token");
           //console.log("It has removed the token and the token is :",token["auth-token"]);;
 
         }
@@ -411,6 +419,7 @@ const DataProvider = ({ children }) => {
       setActiveToken("");
       setActivities_g([]);
       setUser_g([]);
+      setResult([]);
     }
   }
   useEffect(() => {

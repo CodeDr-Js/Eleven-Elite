@@ -9,7 +9,7 @@ import usdt from "../../assets/icons/usdt.png";
 import usd from "../../assets/icons/usd.png";
 import usd1 from "../../assets/icons/usd1.png";
 import { Link, useNavigate } from "react-router-dom";
-import { useCookies } from "react-cookie";
+import Cookies  from "js-cookie";
 import { checkToken } from "../checkToken/chechToken";
 import trans from "../../assets/svg/send 1.svg";
 import BetHis from "../../assets/svg/life-buoy (2).svg";
@@ -55,7 +55,7 @@ const Profile = () => {
 
   //console.log("Activities global is:", activities_g, "resull is:", result, "user is:", user_g );
   const navigate = useNavigate();
-  const [token, setToken, removeToken] = useCookies(["auth-token"]);
+  const token = Cookies.get("auth-token");
 
   useEffect(() => {
     setLoadings(true);
@@ -65,27 +65,27 @@ const Profile = () => {
   }, [activities_g]);
 
   useEffect(() => {
-    const token1 = token["auth-token"];
-    if (token1) {
+    
+    if (token) {
       //console.log("Your token is", token1);
-      setActiveToken(token1);
+      setActiveToken(token);
     } else {
       navigate("/login");
       setActiveToken("");
     }
-  }, []);
+  }, [token]);
 
   const handleLogout = () => {
     setIsLoading(true);
-    API.logout(token["auth-token"]).then((result) => {
+    API.logout(token).then((result) => {
       setIsLoading(false);
       console.log(result);
       if (result.success) {
-        removeToken("auth-token");
+        Cookies.remove("auth-token");
         setActiveToken("");
         navigate("/login");
       } else {
-        removeToken("auth-token");
+        Cookies.remove("auth-token");
         setActiveToken("");
         navigate("/login");
       }

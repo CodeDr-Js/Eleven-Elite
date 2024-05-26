@@ -12,7 +12,7 @@ import History from "../../../assets/home-icons/bet history.svg";
 import Guide from "../../../assets/svg/guide.svg";
 import Soccer from "../../../assets/home-icons/soccer.svg";
 import { API } from "../../api-service/api-service";
-import { useCookies } from "react-cookie";
+import Cookies  from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import { DataContext } from "../../APIs/Api";
 import RewardCoupon from "../../reward/rewardCoupon";
@@ -21,7 +21,7 @@ import fire from "../../../assets/svg/fire.svg"
 
 const Main = () => {
   const navigate = useNavigate();
-  const [token, setToken, removeToken] = useCookies(["auth-token"]);
+  const token = Cookies.get("auth-token");
   const { setActiveToken } = useContext(DataContext);
   const [isOpen_gift, setIsOpen_gift] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -31,11 +31,11 @@ const Main = () => {
     //setShowLoader(true);
     if (confirmation) {
       setLoading(true);
-      API.logout(token["auth-token"]).then((result) => {
+      API.logout(token).then((result) => {
         //console.log(result);
         setLoading(false);
         if (result.success) {
-          removeToken("auth-token");
+          Cookies.remove("auth-token");
           setActiveToken("");
           navigate("/login");
         } else {

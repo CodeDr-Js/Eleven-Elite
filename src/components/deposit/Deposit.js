@@ -9,7 +9,8 @@ import usdt from "../../assets/icons/usdt.png";
 import usd from "../../assets/icons/usd.png";
 import usd1 from "../../assets/icons/usd1.png";
 import { DataContext } from "../APIs/Api";
-import { useCookies } from "react-cookie";
+//import { useCookies } from "react-cookie";
+import Cookies from "js-cookie";
 import { API } from "../api-service/api-service";
 import QRCodeGenerator from "../qr-code/qrCode";
 import "../fontawesome/css/all.css";
@@ -20,7 +21,7 @@ const Deposit = () => {
     useContext(DataContext);
    // console.log(activities_g);
   const navigate = useNavigate();
-  const [token, setToken, removeToken] = useCookies(["auth-token"]);
+  const token = Cookies.get("auth-token");
   const [message, setMessage] = useState();
   const [reloadTriggered, setReloadTriggered] = useState(false);
   const [isOpen, setIsOpen] = useState(true);
@@ -45,7 +46,7 @@ const Deposit = () => {
 
   const checkPayaddress = () => {
   
-    const token1 = token["auth-token"];
+    // const token1 = token["auth-token"];
     //console.log(typeof activities_g.wallet.pay_address);
     // setTimeout(() => {
     //  console.log(activities_g);
@@ -53,7 +54,7 @@ const Deposit = () => {
         setIsOpen(false);
       //  console.log("loading... Not object");
         //setReloadTriggered(true);
-        API.retrieveData(token1)
+        API.retrieveData(token)
           .then((result) => {
         //    console.log(result);
             setIsOpen(true)
@@ -62,7 +63,8 @@ const Deposit = () => {
               setActivities_g(result.activities);
             } else if (!result.success) {
           //    console.log("removing token");
-              removeToken("auth-token");
+              // removeToken("auth-token");
+              Cookies.remove("auth-remove")
             }
           })
           .catch((err) => console.log(err));
@@ -77,10 +79,9 @@ const Deposit = () => {
   }, []);
 
   const checkToken = () => {
-    const token1 = token["auth-token"];
-    if (token1) {
+    if (token) {
      // console.log("token", token1);
-      setActiveToken(token1);
+      setActiveToken(token);
     } else {
       setActiveToken("");
       navigate("/login");
@@ -89,7 +90,7 @@ const Deposit = () => {
 
   useEffect(() => {
     checkToken();
-  }, []);
+  }, [token]);
 
   setTimeout(() => {
     if (message) {

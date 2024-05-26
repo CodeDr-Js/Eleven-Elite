@@ -5,7 +5,8 @@ import Logo from "../../assets/images/Logo.png";
 import Arrow from "../../assets/images/document-management-system-return-icon-48 - Copy copy.png";
 import "../fontawesome/css/all.css";
 import Button from "../loader-btn/loader-btn";
-import { useCookies } from "react-cookie";
+//import { useCookies } from "react-cookie";
+import Cookies from "js-cookie";
 import axios from "axios";
 import { API } from "../api-service/api-service";
 
@@ -15,16 +16,15 @@ const ForgetPassword = () => {
     email: "",
   });
 
-  const [token] = useCookies(["auth-token"]);
+  const token = Cookies.get("auth-token");
   //Checking for token/Activ
   useEffect(() => {
-    const token1 = token["auth-token"];
-    if (token1) {
+    if (token) {
 //      console.log("Your token is", token1);
       navigate("/");
     } else {
     }
-  }, []);
+  }, [token]);
 
  // console.log(values);
 

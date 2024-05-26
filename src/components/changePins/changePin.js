@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import "./change_pin.css";
 import { API } from '../api-service/api-service';
-import { useCookies } from 'react-cookie';
+//import { useCookies } from 'react-cookie';
+import Cookies from "js-cookie";
     
 
 
@@ -9,7 +10,7 @@ const ChangePin = ({
     isOpen_pin,
     setIsOpen_pin,
   }) => {
-    const [token] = useCookies(["auth-token"])
+    const token = Cookies.get("auth-token");
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [values, setValues] = useState({
       old_pin: "",
@@ -27,7 +28,7 @@ const ChangePin = ({
 
     const handleCloseModal = () => {
         setIsLoadingPin(true);
-        API.changePin(values, token["auth-token"])
+        API.changePin(values, token)
         .then((result) => {
             setIsLoadingPin(false);
             if(result.success){

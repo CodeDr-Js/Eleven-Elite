@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import ArrowNav from "../arrowNav/ArrowNav";
 import { useNavigate } from "react-router-dom";
-import { useCookies } from "react-cookie";
+import Cookies  from "js-cookie";
 import { DataContext } from "../APIs/Api";
 import { API } from "../api-service/api-service";
 import Loader from "../loader/loader";
@@ -11,21 +11,21 @@ import Loader from "../loader/loader";
 const Pending = () => {
     const navigate = useNavigate();
     const { setActiveToken, pending, setPending } = useContext(DataContext);
-    const [token, setToken, removeToken] = useCookies(["auth-token"]);
+    const token = Cookies.get("auth-token");
     const [loadings, setLoadings] = useState(false)
    // console.log(pending);
     
   
   
     useEffect(() => {
-      if (!token["auth-token"]) {
-        removeToken("auth-token");
+      if (!token) {
+        Cookies.remove("auth-token");
         navigate("/login");
         setActiveToken("");
       } else {
-        setActiveToken(token["auth-token"]);
+        setActiveToken(token);
       }
-    }, []);
+    }, [token]);
 
     useEffect(() => {
       setLoadings(true);
@@ -37,7 +37,7 @@ const Pending = () => {
     useEffect(() => {
       
       if (pending === null) {
-        API.pending(token["auth-token"])
+        API.pending(token)
           .then((result) => {
             console.log(result);
             if (result.success) {

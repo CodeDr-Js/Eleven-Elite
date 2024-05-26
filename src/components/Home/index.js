@@ -8,7 +8,8 @@ import ScoreAnti from "./anti-scores/scores";
 import CarouselComponent from "./ads/ad-text";
 import { useNavigate, useParams } from "react-router-dom";
 import { DataContext } from "../APIs/Api";
-import { useCookies } from "react-cookie";
+//import { useCookies } from "react-cookie";
+import Cookies from "js-cookie";
 import "../largeScreen/large.css";
 import Loader from "../loader/loader";
 import Reward from "../reward/reward";
@@ -26,29 +27,29 @@ const Index = () => {
   const { data, allData, activeToken, setActiveToken, activities, activities_g, user, result } =
     useContext(DataContext);
     //console.log(activities_g);
-  const [token] = useCookies(["auth-token"]);
+  //const [token] = useCookies(["auth-token"]);
   const [loadings, setLoadings] = useState(false)
   const [loading, setLoading] = useState(false)
   const [activeButton, setActiveButton] = useState("")
   
-  console.log("Token:",activeToken);
+ // console.log("Token:",activeToken);
   //Checking for token/Activ
+  const token1 = Cookies.get("auth-token");
+
   useEffect(() => {
-    const token1 = token["auth-token"];
-    if (!token1) {
+    if (token1) {
       //console.log("Your token is", token1);
-      navigate("/login");
-      setActiveToken("")
-    } else {
       setActiveToken(token1)
+    } else {
+      navigate("/login");
     }
-  }, []);
+  }, [token1]);
 
   useEffect(() => {
     if(result) {
       if(result.bonus){
         setLoading(true)
-        API.removeBonus(token["auth-token"])
+        API.removeBonus(token1)
         .then((result) => {
          // console.log(result);
         })

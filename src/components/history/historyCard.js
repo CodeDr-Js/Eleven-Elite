@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import "../color/color.css";
 import "./index.css";
 import { API } from "../api-service/api-service";
-import { useCookies } from "react-cookie";
+import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import { DataContext } from "../APIs/Api";
 import { CalculateStartDiff } from "../qickfun/qickfun";
@@ -39,7 +39,7 @@ const HistoryCard = ({loading, openBet, setOpenBet, setSettled, setActivities}) 
   // const [activities, setActivities] = useState([]);
   // const [settled, setSettled] = useState([]);
   // const [openBet, setOpenBet] = useState([]);
-  const [token] = useCookies(["auth-token"]);
+  const token = Cookies.get("auth-token");
   //const [showLoader, setShowLoader] = useState(false);
 
 

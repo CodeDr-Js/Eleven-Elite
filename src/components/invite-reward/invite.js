@@ -5,13 +5,13 @@ import InviteCard from "./invite-card";
 import { API } from "../api-service/api-service";
 import { DataContext } from "../APIs/Api";
 import { useNavigate } from "react-router-dom";
-import { useCookies } from "react-cookie";
+import Cookies from "js-cookie";
 import Loader from "../loader/loader";
 
 const Invite = () => {
   const navigate = useNavigate();
   const { setActiveToken, invite, setInvite } = useContext(DataContext);
-  const [token, setToken, removeToken] = useCookies(["auth-token"]);
+  const token = Cookies.get("auth-token");
   const [loadings, setLoadings] = useState(false)
 
   //console.log(invite);
@@ -28,14 +28,14 @@ const Invite = () => {
  // console.log(runningLevel.downline_required);
 
   useEffect(() => {
-    if (!token["auth-token"]) {
-      removeToken("auth-token");
+    if (!token) {
+      Cookies.remove("auth-token")
       navigate("/login");
       setActiveToken("");
     } else {
-      setActiveToken(token["auth-token"]);
+      setActiveToken(token);
     }
-  }, []);
+  }, [token]);
 
   useEffect(() => {
     setLoadings(true);
@@ -47,7 +47,7 @@ const Invite = () => {
   useEffect(() => {
   
     if (invite === null) {
-      API.invite(token["auth-token"])
+      API.invite(token)
         .then((result) => {
          // console.log(result);
           if (result.success) {

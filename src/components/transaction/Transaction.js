@@ -5,7 +5,7 @@ import TransactionHeader from './transactionHeader';
 import TransactionCard from './transactionCard';
 import MySelect from '../mySelect/MySelect2';
 import { API } from '../api-service/api-service';
-import { useCookies } from 'react-cookie';
+import Cookies  from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
 import NoData from '../noData/noData';
 import Footer from '../Home/anti-scores/footer';
@@ -16,7 +16,7 @@ import Footer from '../Home/anti-scores/footer';
 
 const Transaction = () => {
   const navigate = useNavigate();
-  const [token, setToken, removeToken] = useCookies(["auth-token"]);
+  const token = Cookies.get("auth-token");
   const [value, setValue] = useState({
     filter_date: getFormattedDate(),
     transaction_type: "withdraw",
@@ -28,14 +28,14 @@ const Transaction = () => {
  
 
   useEffect(() => {
-    const token1 = token["auth-token"];
-    if (!token1) {
+    
+    if (!token) {
       navigate("/login");
     
     } else {
      
     }
-  }, []);
+  }, [token]);
 
   function getFormattedDate() {
     // const currentDate = new Date();
@@ -55,10 +55,10 @@ const Transaction = () => {
   const handleSearch = (values) => {
     //console.log("The values are", values);
     setIsLoading(true);
-    API.transaction(values, token['auth-token'])
+    API.transaction(values, token)
     .then((result) => {
       if(result.detail){
-        removeToken("auth-token")
+       Cookies.remove("auth-token")
         navigate("/login")
         
       } else if(result) {

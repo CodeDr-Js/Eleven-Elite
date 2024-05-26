@@ -7,10 +7,12 @@ import LoginNav from "../loginNav/loginNav";
 import "../fontawesome/css/all.css";
 import axios from "axios";
 import { API } from "../api-service/api-service";
-import { useCookies } from "react-cookie";
+//import { useCookies } from "react-cookie";
 import Button from "../loader-btn/loader-btn";
 import { dir } from "../search_dir/search_dir";
 import { DataContext } from "../APIs/Api";
+import Cookies from "js-cookie";
+
 
 
 /**Full name 
@@ -26,14 +28,15 @@ const Register = () => {
   const navigate = useNavigate();
   const {setActiveToken, activeToken} = useContext(DataContext);
   const [activeButton, setActiveButton] = useState("signup");
-  const [token, setToken] = useCookies(["auth-token"]);
+ // const [token, setToken, removeToken] = useCookies(["auth-token"]);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState();
+  
 
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [password, setPassword] = useState('');
 
-  console.log(activeToken);
+  // console.log("Tokens are:",token["auth-token"],activeToken);
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
@@ -58,8 +61,8 @@ const Register = () => {
   
 
   //Checking for token/Activ
+  const token1 = Cookies.get("auth-token");
   useEffect(() => {
-    const token1 = token["auth-token"];
     if (token1) {
    //   console.log("Your token is", token1);
       navigate("/");
@@ -67,7 +70,7 @@ const Register = () => {
     } else {
       
     }
-  }, []);
+  }, [token1]);
 
   //console.log(values);
   
@@ -85,7 +88,7 @@ const Register = () => {
        invited: invitedUser,
      }));
    }
- }, []);
+ }, [invitedUser]);
 
 
   const [showLoader, setShowLoader] = useState(false);
@@ -106,29 +109,31 @@ const Register = () => {
     API.registerUser(values)
       .then((result) => {
         setShowLoader(false);
+
+
         //console.log(result);
         // if(result.statusCode === 400) {
         //   console.log("yes 400");
         // }
+        
         if (result.success) {
-          //handleRequest(result);
-          API.loginUser({username: values.username, password: values.password})
-          .then((result) => {
-            if(result.success){
-              setToken("auth-token", result.token);
-              setActiveToken(result.token)
-              navigate("/");
-            } 
-          })
-          .catch((err)=> console.log(err));
-          setSuccess(result.message);
-     //     console.log(result.message);
-     //     console.log(success);
-         
-          //window.location.href = "/"
-          // setTimeout(() => {
+          // if (invitedUser) {
+          //   Cookies.set('auth-token', result.token, { expires: 7 });
+          //   // setToken("auth-token", result.token);
+          //   setActiveToken(result.token)
+          //   navigate("/");
+          // } else {
+          //   Cookies.set('auth-token', result.token, { expires: 7 });
+          //   // setToken("auth-token", result.token);
+          //   setActiveToken(result.token)
+          //   navigate("/");
+          // }
+          Cookies.set('auth-token', result.token, { expires: 7 });
+          setActiveToken(result.token)
+          navigate("/");
 
-          // }, 2000);
+          setSuccess(result.message);
+
         } else {
        //   console.log("user", result);
           setError(result.message);

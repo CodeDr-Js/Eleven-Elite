@@ -9,7 +9,7 @@ import usdt from "../../assets/icons/usdt.png";
 import usd from "../../assets/icons/usd.png";
 import usd1 from "../../assets/icons/usd1.png";
 import { DataContext } from "../APIs/Api";
-import { useCookies } from "react-cookie";
+import Cookies  from "js-cookie";
 import Pin from "../withdrawal pin/pin";
 import { API } from "../api-service/api-service";
 import WithdrawSuccess from "./withdrawSuccess";
@@ -19,7 +19,7 @@ const Withdrawal = () => {
   const navigate = useNavigate();
   const { setActiveToken, activities_g, setActivities_g } =
     useContext(DataContext);
-  const [token, setToken, removeToken] = useCookies(["auth-token"]);
+  const token = Cookies.get("auth-token");
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen3, setIsOpen3] = useState(false);
   const [values, setValues] = useState({
@@ -39,11 +39,10 @@ const Withdrawal = () => {
 
   // const [amount, setAmount] = useState('');
   const checkToken = () => {
-    const token1 = token["auth-token"];
 
-    if (token1) {
+    if (token) {
       //console.log("token", token1);
-      setActiveToken(token1);
+      setActiveToken(token);
     } else {
       setActiveToken("");
       navigate("/login");
@@ -52,7 +51,7 @@ const Withdrawal = () => {
 
   useEffect(() => {
     checkToken();
-  }, []);
+  }, [token]);
 
   const handleAllClick = () => {
     setValues((prev) => ({
@@ -81,7 +80,7 @@ const Withdrawal = () => {
     setErrorWithdraw('');
     setAmountWithdraw("");
 
-    API.withdraw(values, token["auth-token"])
+    API.withdraw(values, token)
     .then((result) => {
       console.log(result);
       setIsLoading(false);
@@ -101,7 +100,7 @@ const Withdrawal = () => {
 
         }))
       } else if (result.detail || result.detail === "Invalid token.") {
-        removeToken("auth-token");
+       Cookies.remove("auth-token")
         setActiveToken('')
         navigate("/login")
 
@@ -130,7 +129,7 @@ const Withdrawal = () => {
 
     setIsLoadingPin(true);
     console.log(value);
-    API.setPin(value, token["auth-token"])
+    API.setPin(value, token)
       .then((result) => {
         console.log(result);
         setIsLoadingPin(false);

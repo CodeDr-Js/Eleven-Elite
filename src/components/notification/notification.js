@@ -4,7 +4,7 @@ import "./index.css";
 import ArrowNav from "../arrowNav/ArrowNav";
 import NotificationNav from "./NotificationNav/NotificationNav";
 import NotificationCardnew from "./NotificationCard-new";
-import { useCookies } from "react-cookie";
+import Cookies  from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import { API } from "../api-service/api-service";
 import { DataContext } from "../APIs/Api";
@@ -18,18 +18,18 @@ const Notification = () => {
   const [activeButton, setActiveButton] = useState("new");
   const { setActiveToken, notification, setNotification } =
     useContext(DataContext);
-  const [token, setToken, removeToken] = useCookies(["auth-token"]);
+  const token = Cookies.get("auth-token");
   const [loadings, setLoadings] = useState(false)
 //  console.log(notification);
   useEffect(() => {
-    if (!token["auth-token"]) {
-      removeToken("auth-token");
+    if (!token) {
+      Cookies.remove("auth-token");
       navigate("/login");
       setActiveToken("");
     } else {
-      setActiveToken(token["auth-token"]);
+      setActiveToken(token);
     }
-  }, []);
+  }, [token]);
 
   useEffect(() => {
     setLoadings(true);
@@ -41,7 +41,7 @@ const Notification = () => {
   useEffect(() => {
  
     if (notification === null) {
-      API.notification(token["auth-token"])
+      API.notification(token)
         .then((result) => {
         //  console.log(result);
           if (result.success) {

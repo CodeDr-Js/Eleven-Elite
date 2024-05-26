@@ -6,7 +6,7 @@ import PromotionNav from "./PromotionNav/PromotionNav";
 import PromotionCard from "./promotionCard";
 import PromotionFC from "./PromotionFC";
 import { API } from "../api-service/api-service";
-import { useCookies } from "react-cookie";
+import Cookies  from "js-cookie";
 import { DataContext } from "../APIs/Api";
 import { host, hostname, origin } from "../search_dir/search_dir";
 import { useNavigate } from "react-router-dom";
@@ -20,15 +20,14 @@ const Promotion = () => {
   const { setActiveToken, setPromotion, promotion } = useContext(DataContext);
   const [activeButton1, setActiveButton1] = useState("level-1");
   const [message, setMessage] = useState();
-  const [token, setToken, removeToken] = useCookies(["auth-token"]);
+  const token = Cookies.get("auth-token");
   const [loadings, setLoadings] = useState(false);
   const [activeButton, setActiveButton] = useState("promotion");
 
-  if (!token["auth-token"]) {
-    removeToken("auth-token");
+  if (!token) {
     navigate("/login");
   } else {
-    setActiveToken(token["auth-token"]);
+    setActiveToken(token);
   }
   //console.log(promotion);
   useEffect(() => {
@@ -40,13 +39,13 @@ const Promotion = () => {
 
   useEffect(() => {
     if (promotion === null) {
-      API.promotion(token["auth-token"])
+      API.promotion(token)
         .then((result) => {
           // console.log(result, token["auth-token"]);
           if (result.success) {
             setPromotion(result);
           } else if (result.detail) {
-            removeToken("auth-token");
+            Cookies.remove("auth-token")
             setActiveToken("");
             navigate("/login");
           }
