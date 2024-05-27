@@ -4,41 +4,54 @@ import React, {
   useState,
   useContext,
   useRef,
+  useCallback,
 } from "react";
 import "./index.css";
 import axios from "axios";
 import { DataContext } from "../../APIs/Api";
 import { useNavigate } from "react-router-dom";
-import Cookies  from "js-cookie";
+import Cookies from "js-cookie";
 import { CalculateStartDiff } from "../../qickfun/qickfun";
 import NoData from "../../noData/noData";
 import Loader from "../../loader/loader";
 
-
-
 const ScoreAnti = () => {
   const navigate = useNavigate();
-  const {activities_g, data, allData, activeToken, setActiveToken, activities, user, checkData, setCheckDate, loadingNew, setLoadingNew } =
-    useContext(DataContext);
+  const {
+    activities_g,
+    data,
+    allData,
+    activeToken,
+    setActiveToken,
+    activities,
+    user,
+    checkData,
+    setCheckDate,
+    loadingNew,
+    setLoadingNew,
+  } = useContext(DataContext);
+  const [displayedData, setDisplayedData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
+  const limit = 20; // Number of items to display initially and per scroll
+  const observer = useRef();
 
   const token = Cookies.get("auth-token");
-  console.log(activities_g);
+  //console.log(activities_g);
 
   //Checking for token/Activ
   useEffect(() => {
-    
     if (!token) {
       console.log("Your token is", token);
       navigate("/login");
-      setActiveToken("")
+      setActiveToken("");
     } else {
-      setActiveToken(token)
+      setActiveToken(token);
     }
-
   }, [token]);
 
-  console.log(allData);
-  console.log(checkData);
+  //console.log(allData);
+  //console.log(checkData);
 
   // const lastItemRef = useRef(null);
 
@@ -102,150 +115,196 @@ const ScoreAnti = () => {
   //   console.log(filteredData);
   // });
 
-  
   const filterIds = new Set(allData.map((item) => item.fixture.id));
   //console.log(filterIds);
 
   // Filtering data100 based on whether their ID exists in data20
-  const filteredData = data[0] ? data.filter((item) => filterIds.has(item.fixture.id)) : "";
+  const filteredData = data[0]
+    ? data.filter((item) => filterIds.has(item.fixture.id))
+    : "";
   //console.log(filteredData);
+
+  useEffect(() => {
+    setLoading(true);
+    setDisplayedData(filteredData.slice(0, limit));
+    setLoading(false);
+  }, []);
+  console.log(displayedData);
   
-  const e = [];
-  const newGames = filteredData[0]? filteredData.map((game, index) => {
-    //console.log(game);
-    //console.log(game);
-    const gameStatus = game.fixture.status.short;
-    //console.log(gameStatus);
-    const gameStartTime = game.fixture.timestamp * 1000;
-    let gameTime = CalculateStartDiff(gameStartTime);
-
-    //console.log(gameTime);
-
-    const userTime = Date.now();
-
-    // const timeout = setTimeout(() => {
-
-    // }, 1000);
-
-    // console.log(userTime, gameStartTime);
-    //CHECK USERTIME AND GAMESTARTTIME
-
-    if (gameStatus === "NS" && !gameTime.expired) {
-      e.push(game);
-      let endId = "ends-" + index;
-      let matchCard = "match-" + index;
-      const timeout = (endId, matchCard) => {
-        let x = setInterval(() => {
-          const end = document.getElementById(endId);
-          if (end) {
-            gameTime = CalculateStartDiff(gameStartTime);
-            if (!gameTime.expired) {
-              const hour = gameTime.counter.hours;
-              const days = gameTime.counter.days;
-              const minutes = gameTime.counter.minutes;
-              const seconds = gameTime.counter.seconds;
-              end.innerText = `Ends in ${hour}${minutes}${seconds}`;
-            } else {
-              clearInterval(x);
-              const matchCardDiv = document.getElementById(matchCard);
-              //matchCard.style.display = 'none';
-              matchCardDiv.remove();
-             // console.log(gameTime, "expired");
-            }
-            //console.log(end);
-          }
-        }, 1000);
-      };
-      // if (gameStatus === "FT") {
-
-      const scoreCard = (
-        <div
-          // ref={lastItemRef}
-          id={matchCard}
-          onClick={() => {
-            navigate("/odd/" + game.fixture.id);
-          }}
-          key={game.fixture.id}
-          className="score-div"
-        >
-          <div className="d-flex small-div opacity-50">
-            <small className="me-auto ">
-              {convertTimestampToRealTime(game.fixture.timestamp)}
-            </small>
-            <small>
-              {leagueShortName(game.league.name)} {game.league.country}
-            </small>
-          </div>
-          <div className=" d-flex">
-            <div className="me-auto score-div-2">
-              <div className="fw-bold d-flex mb-2">
-                <span>
-                  <img
-                    className="me-2 rounded-circle"
-                    src={game.teams.home.logo}
-                    alt="Logo"
-                    style={{ width: "15px" }}
-                  />
-                </span>
-                <div>{game.teams.home.name}</div>
-              </div>
-
-              <div className="fw-bold d-flex">
-                <span>
-                  <img
-                    className="me-2 rounded-circle"
-                    src={game.teams.away.logo}
-                    alt="Logo"
-                    style={{ width: "15px" }}
-                  />
-                </span>
-                <div>{game.teams.away.name}</div>
-              </div>
-            </div>
-            <div className="rounded-circle volume-div ms-3 shadow ">
-              <div>
-                <div className="">Volume</div>
-                <div>4708K</div>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <div id={endId} className="text-center  opacity-50">
-              Ends in
-            </div>
-            <div className="d-flex justify-content-center">
-              <div className="rounded-4 against-div pt-2 pb-2 bg-primary w-75 ps-3 pe-3 "></div>
-            </div>
-
-            <div className="d-flex against-div-2 ">
-              <div className="against-color ">
-                {" "}
-                <span className="opacity-50 against">Against</span>
-              </div>
-              <div className="fw-bold ps-3 pe-3 score ">
-                {" "}
-                Score - {game.fixture.status.short}{" "}
-              </div>
-              <div className="odd pe-5 ps-3 ">21.24%</div>
-            </div>
-          </div>
-        </div>
-      );
-      timeout(endId, matchCard);
-      return scoreCard;
+  const loadMoreData = () => {
+    const newIndex = displayedData.length + limit;
+    if (newIndex >= filteredData.length) {
+      setDisplayedData(filteredData);
+      setHasMore(false);
+    } else {
+      setDisplayedData((prevData) => [
+        ...prevData,
+        ...filteredData.slice(prevData.length, newIndex),
+      ]);
     }
-  }) : "";
+  };
 
-  useEffect(()=> {
-    if(checkData) {
-      if(e[0]) {
+  const lastElementRef = useCallback(
+    (node) => {
+      if (loading) return;
+      if (observer.current) observer.current.disconnect();
+      observer.current = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && hasMore) {
+          loadMoreData();
+        }
+      });
+      if (node) observer.current.observe(node);
+    },
+    [loading, hasMore]
+  );
+
+  const e = [];
+  // const newGames = filteredData[0]? filteredData.map((game, index) => {
+  const newGames = displayedData[0]
+    ? displayedData.map((game, index) => {
+        //console.log(game);
+        //console.log(game);
+        const gameStatus = game.fixture.status.short;
+        //console.log(gameStatus);
+        const gameStartTime = game.fixture.timestamp * 1000;
+        let gameTime = CalculateStartDiff(gameStartTime);
+
+        //console.log(gameTime);
+
+        const userTime = Date.now();
+
+        // const timeout = setTimeout(() => {
+
+        // }, 1000);
+
+        // console.log(userTime, gameStartTime);
+        //CHECK USERTIME AND GAMESTARTTIME
+
+        if (gameStatus === "NS" && !gameTime.expired) {
+          e.push(game);
+          let endId = "ends-" + index;
+          let matchCard = "match-" + index;
+          const timeout = (endId, matchCard) => {
+            let x = setInterval(() => {
+              const end = document.getElementById(endId);
+              if (end) {
+                gameTime = CalculateStartDiff(gameStartTime);
+                if (!gameTime.expired) {
+                  const hour = gameTime.counter.hours;
+                  const days = gameTime.counter.days;
+                  const minutes = gameTime.counter.minutes;
+                  const seconds = gameTime.counter.seconds;
+                  end.innerText = `Ends in ${hour}${minutes}${seconds}`;
+                } else {
+                  clearInterval(x);
+                  const matchCardDiv = document.getElementById(matchCard);
+                  //matchCard.style.display = 'none';
+                  matchCardDiv.remove();
+                  // console.log(gameTime, "expired");
+                }
+                //console.log(end);
+              }
+            }, 1000);
+          };
+          // if (gameStatus === "FT") {
+
+          const scoreCard = (
+            <div
+              // ref={lastItemRef}
+              id={matchCard}
+              onClick={() => {
+                navigate("/odd/" + game.fixture.id);
+              }}
+              key={game.fixture.id}
+              className="score-div"
+            >
+              <div className="d-flex small-div opacity-50">
+                <small className="me-auto ">
+                  {convertTimestampToRealTime(game.fixture.timestamp)}
+                </small>
+                <small>
+                  {leagueShortName(game.league.name)} {game.league.country}
+                </small>
+              </div>
+              <div className=" d-flex">
+                <div className="me-auto score-div-2">
+                  <div className="fw-bold d-flex mb-2">
+                    <span>
+                      <img
+                        className="me-2 rounded-circle"
+                        src={game.teams.home.logo}
+                        alt="Logo"
+                        style={{ width: "15px" }}
+                      />
+                    </span>
+                    <div>{game.teams.home.name}</div>
+                  </div>
+
+                  <div className="fw-bold d-flex">
+                    <span>
+                      <img
+                        className="me-2 rounded-circle"
+                        src={game.teams.away.logo}
+                        alt="Logo"
+                        style={{ width: "15px" }}
+                      />
+                    </span>
+                    <div>{game.teams.away.name}</div>
+                  </div>
+                </div>
+                <div className="rounded-circle volume-div ms-3 shadow ">
+                  <div>
+                    <div className="">Volume</div>
+                    <div>4708K</div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div id={endId} className="text-center  opacity-50">
+                  Ends in
+                </div>
+                <div className="d-flex justify-content-center">
+                  <div className="rounded-4 against-div pt-2 pb-2 bg-primary w-75 ps-3 pe-3 "></div>
+                </div>
+
+                <div className="d-flex against-div-2 ">
+                  <div className="against-color ">
+                    {" "}
+                    <span className="opacity-50 against">Against</span>
+                  </div>
+                  <div className="fw-bold ps-3 pe-3 score ">
+                    {" "}
+                    Score - {game.fixture.status.short}{" "}
+                  </div>
+                  <div className="odd pe-5 ps-3 ">21.24%</div>
+                </div>
+              </div>
+            </div>
+          );
+          timeout(endId, matchCard);
+          return scoreCard;
+        }
+      })
+    : "";
+
+  useEffect(() => {
+    if (checkData) {
+      if (e[0]) {
         setLoadingNew(true);
       }
     }
-  },[])
+  }, []);
 
-  return  <div className="score-div-main">{newGames} {!e[0]? <Loader/>:""}</div>;
+  return (
+    <div className="score-div-main">
+      {newGames}
+      {loading && <p>Loading...</p>}
+      {hasMore && <div ref={lastElementRef} style={{ height: 20 }}></div>}
+
+      {!e[0] ? <Loader /> : ""}
+    </div>
+  );
 };
 
 export default ScoreAnti;

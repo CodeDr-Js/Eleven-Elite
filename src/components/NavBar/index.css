@@ -11,3 +11,12 @@
   color: white;
   rotate: 180deg;
 }
+
+.search-div{
+  border: 1px solid white ;
+}
+
+.search-div::placeholder{
+  font-size: 12px;
+  padding-left: 30px;
+}
