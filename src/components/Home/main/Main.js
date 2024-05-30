@@ -17,13 +17,15 @@ import { useNavigate } from "react-router-dom";
 import { DataContext } from "../../APIs/Api";
 import RewardCoupon from "../../reward/rewardCoupon";
 import Loader from "../../loader/loader";
-import fire from "../../../assets/svg/fire.svg"
+import fire from "../../../assets/svg/fire.svg";
+import HelpDash from "../../help-dash/helpDash";
 
 const Main = () => {
   const navigate = useNavigate();
   const token = Cookies.get("auth-token");
   const { setActiveToken } = useContext(DataContext);
   const [isOpen_gift, setIsOpen_gift] = useState(false);
+  const [isHelp, setIsHelp] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const handleLogoutClick = () => {
@@ -54,7 +56,7 @@ const Main = () => {
           <IconCon image={Deposit} text="Deposit" link="/deposit" />
           <IconCon image={Withdraw} text="Withdraw" link="/withdraw" />
           <IconCon image={About} text="About" link="/about" />
-          <IconCon image={Help} text="Help" link="/help" />
+          <IconCon image={Help} text="Help" onClick={() => setIsHelp(true)}  />
           <IconCon
             image={Guide}
             text="Gift"
@@ -80,6 +82,9 @@ const Main = () => {
       ) : (
         ""
       )}
+
+      {isHelp && <div className="modal-overlay-profile"> <HelpDash isHelp={isHelp}
+            setIsHelp={setIsHelp} /></div> }
 
       
     </>
