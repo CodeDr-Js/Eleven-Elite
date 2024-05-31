@@ -82,7 +82,7 @@ const Index = () => {
       <Main />
       <SecureCard/>
       <Sport />
-      <ScoreAnti />
+      {/* <ScoreAnti /> */}
       <Footer activeButton={activeButton} setActiveButton={setActiveButton} />
     </div>
 ) : navigate(`/${activeButton}`)}

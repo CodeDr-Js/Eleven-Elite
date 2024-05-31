@@ -8,10 +8,11 @@ import ProtectivePlan from "../../../assets/images/eye-47.png";
 import "./index.css";
 import "../../largeScreen/largeHeader.css";
 
-const NavBar_Anti = () => {
+const NavBar_Anti = ({search, setSearch}) => {
+  console.log("searchNav-Anti", search);
   return (
     <div className="fixed-top container">
-      <NavBar_Logo />
+      <NavBar_Logo search={search } setSearch={setSearch}  />
       <div className="d-flex g-main bg-transparent">
         <div className="market-main-div bg-transparent">
           <div className="btn btn-primary market-div">
@@ -28,7 +29,7 @@ const NavBar_Anti = () => {
           </div>
         </div>
 
-        <div className="market-main-div g-main-sp bg-transparent ">
+        <div className="market-main-div g-main-sp bg-transparent disabled ">
           <div className="btn g-sub-color market-div">
             <a href="" className="d-flex g-sub-color g-main-sp">
               <div className="me-1 g-sub-color">
@@ -39,14 +40,14 @@ const NavBar_Anti = () => {
                 />
               </div>
               <div className="g-sub-color incensive-fund g-main-sp">
-                Incentive  Fund
+                Live-<spam className="text-danger">Coming soon</spam>
               </div>
             </a>
           </div>
         </div>
 
-        <div className="market-main-div bg-transparent">
-          <div className="btn g-sub-color market-div">
+        <div className="market-main-div bg-transparent disabled">
+          <div className="btn g-sub-color market-div ">
             <a href="" className=" g-main-sp d-flex g-sub-color">
               <div className="me-1 g-sub-color">
                 <img
@@ -56,7 +57,7 @@ const NavBar_Anti = () => {
                 />
               </div>
               <div className=" g-main-sp g-sub-color incensive-fund">
-                Protection Plan
+                Finished-<spam className="text-danger tx">Coming soon</spam>
               </div>
             </a>
           </div>

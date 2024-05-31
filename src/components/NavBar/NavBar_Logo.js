@@ -10,7 +10,8 @@ import usd from "../../assets/icons/usd.png";
 import usd1 from "../../assets/icons/usd1.png";
 import { DataContext } from "../APIs/Api";
 
-const NavBar_Logo = () => {
+const NavBar_Logo = ({search, setSearch}) => {
+  console.log("searchNav-Logo", search);
   const { activities_g } = useContext(DataContext);
 
   const goBack = () => {
@@ -41,11 +42,14 @@ const NavBar_Logo = () => {
       </div>
 
       <div className="ms-auto">
-        <i className="fa fa-search position-absolute mt-2 ms-2"></i>
+        {/* <i className="fa fa-search position-absolute mt-2 ms-2"></i> */}
         <input
         type="text"
         className="search-div rounded-4 p-1"
-        placeholder="search for league or team..."/>
+        placeholder="search for league or team..."
+        name="search"
+        onChange={(e)=>{setSearch(e.target.value)}}
+        />
       </div>
     </div>
   );

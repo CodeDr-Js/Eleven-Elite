@@ -14,6 +14,9 @@ import Cookies from "js-cookie";
 import { CalculateStartDiff } from "../../qickfun/qickfun";
 import NoData from "../../noData/noData";
 import Loader from "../../loader/loader";
+import NavBar_Anti from "./NavBar-Anti";
+import NavBar_Logo from "../../NavBar/NavBar_Logo";
+
 
 const ScoreAnti = () => {
   const navigate = useNavigate();
@@ -29,13 +32,18 @@ const ScoreAnti = () => {
     setCheckDate,
     loadingNew,
     setLoadingNew,
+    
   } = useContext(DataContext);
   const [displayedData, setDisplayedData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
   const limit = 20; // Number of items to display initially and per scroll
   const observer = useRef();
-
+ 
+  //Search
+  const [search, setSearch] = useState("");
+  const [filteredSearch, setFilteredSearch] = useState([displayedData]);
+  //Ends
   const token = Cookies.get("auth-token");
   //console.log(activities_g);
 
@@ -63,6 +71,34 @@ const ScoreAnti = () => {
   //      lastItemRef.current.scrollIntoView({ behavior: "smooth" });
   //    }
   // };
+
+
+  // Search function
+  // const handleSearch = (event) => {
+  //   const value = event.target.value;
+  //   setSearchTerm(value);
+
+  //   // Filter the data based on the search input
+  //   const filtered = data.filter(item =>
+  //     item.toLowerCase().includes(value.toLowerCase())
+  //   );
+  //   setFilteredDatas(filtered);
+  // };
+  const handleSearch = () => {
+
+    // Filter the data based on the search input
+    const filtered = filteredData[0] ? filteredData.filter(item => 
+      item.teams.home.name.toLowerCase().includes(search.toLowerCase()) 
+    ):"";
+    setFilteredSearch([filtered]);
+  };
+
+  useEffect(()=>{
+    handleSearch()
+  },[filteredSearch])
+
+
+  // Ends
 
   function convertTimestampToRealTime(timestamp) {
     // Convert the timestamp to milliseconds
@@ -126,10 +162,13 @@ const ScoreAnti = () => {
 
   useEffect(() => {
     setLoading(true);
-    setDisplayedData(filteredData.slice(0, limit));
-    setLoading(false);
+    // setDisplayedData(filteredData.slice(0, limit));
+    // if(displayedData){
+    //   setLoading(false);
+    // }
+    setDisplayedData(filteredData)
   }, []);
-  console.log(displayedData);
+  //console.log(displayedData);
   
   const loadMoreData = () => {
     const newIndex = displayedData.length + limit;
@@ -158,11 +197,13 @@ const ScoreAnti = () => {
     [loading, hasMore]
   );
 
+  console.log("Filtered games :",filteredSearch);
+  
   const e = [];
   // const newGames = filteredData[0]? filteredData.map((game, index) => {
   const newGames = displayedData[0]
-    ? displayedData.map((game, index) => {
-        //console.log(game);
+    ? filteredSearch.map((item) => { return item.map((game, index) => {
+       // console.log("game is",game);
         //console.log(game);
         const gameStatus = game.fixture.status.short;
         //console.log(gameStatus);
@@ -173,15 +214,27 @@ const ScoreAnti = () => {
 
         const userTime = Date.now();
 
+        filteredSearch.map((item)=>{
+          return item.map((items)=>{
+            console.log("items are: ", items);
+
+            })
+          
+          //console.log("The items are :",item);
+        })
+
         // const timeout = setTimeout(() => {
 
         // }, 1000);
 
         // console.log(userTime, gameStartTime);
         //CHECK USERTIME AND GAMESTARTTIME
+       // console.log("yes1", game);
 
         if (gameStatus === "NS" && !gameTime.expired) {
+          //console.log("yes2");
           e.push(game);
+          //console.log("The pushed data is ", game);
           let endId = "ends-" + index;
           let matchCard = "match-" + index;
           const timeout = (endId, matchCard) => {
@@ -285,7 +338,7 @@ const ScoreAnti = () => {
           timeout(endId, matchCard);
           return scoreCard;
         }
-      })
+      }) })
     : "";
 
   useEffect(() => {
@@ -297,12 +350,19 @@ const ScoreAnti = () => {
   }, []);
 
   return (
+    <div>
+    <div>
+    <NavBar_Anti search={search } setSearch={setSearch} />
+    </div>
+
     <div className="score-div-main">
+      
       {newGames}
       {loading && <p>Loading...</p>}
       {hasMore && <div ref={lastElementRef} style={{ height: 20 }}></div>}
 
-      {!e[0] ? <Loader /> : ""}
+      {/* {!e[0] ? <Loader /> : ""} */}
+    </div>
     </div>
   );
 };

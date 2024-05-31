@@ -477,3 +477,7 @@ margin-bottom: 3.75rem;
       height: 12.5rem;
       background-color: rgb(7, 24, 59);    
 }
+
+.tx {
+  font-size: 9px;
+}

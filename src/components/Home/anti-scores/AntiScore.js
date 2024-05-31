@@ -14,6 +14,7 @@ const AntiScore = () => {
      useContext(DataContext);
   const token = Cookies.get("auth-token");
   const [loadings, setLoadings] = useState(false);
+
   useEffect(() => {
     setLoadings(true);
     if(!Array.isArray(activities_g) ) {
@@ -30,12 +31,12 @@ const AntiScore = () => {
     } else {
     }
   }, [token]);
-   
+ 
   return (
     <div>
       {loadings?(<Loader/>):""}
-      <NavBar_Anti />
-      <ScoreAnti />
+      
+      <ScoreAnti  />
     </div>
   );
 };

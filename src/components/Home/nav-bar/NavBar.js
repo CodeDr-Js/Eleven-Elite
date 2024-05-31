@@ -19,9 +19,15 @@ import "../../largeScreen/largeHeader.css";
 const NavBar = () => {
   const navigate = useNavigate();
   const {activities_g, user_g} = useContext(DataContext);
+
+
+  const handleClick = () => {
+    navigate("/notification")
+  }
   //console.log(activities_g);
   return (
     <div className="">
+
 
    
     <div className="container pt-2 d-flex justify-content-between fixed-top">
@@ -49,7 +55,7 @@ const NavBar = () => {
         </div> */}
 
         <div className="select-div   me-auto main-color rounded-2 fw-bold ps-2 pe-2 pt-1">
-          <h4 className="d-flex bg-transparent selete-text">EN <i
+          <h4 className="d-flex bg-transparent "> <span className="selete-text">EN</span> <i
                 id=""
                 className="fa fa-chevron-down  fa-fw ps-1 bg-transparent mt-1 opacity-50 "
               ></i></h4>
@@ -60,7 +66,7 @@ const NavBar = () => {
           <option>Sports</option> */}
         </div>
 
-        <div className="bg-transparent pe-2">
+        <div className="bg-transparent pe-2 " onClick={handleClick}>
               <i
                 id=""
                 className="far fa-bell  fa-fw fa-lg ps-3  pt-3  bg-transparent "
