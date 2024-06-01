@@ -21,3 +21,23 @@
   font-size: 12px;
   padding-left: 30px;
 }
+
+.form-username-1 {
+  padding-left: 0.7rem;
+  padding-top: 0 ;
+  padding-bottom: 0.225rem  ;
+  padding-right: 0.625rem  ;
+  color: whitesmoke;
+  
+}
+
+.form-username-1::placeholder {
+  background-color: #02123D;
+  color: wheat;
+  opacity: 80%;
+  font-size: 10px;
+}
+.form-username-1:focus {
+  background-color: #02123D;
+  color: wheat;
+}

@@ -23,6 +23,7 @@ import Pending from "./components/pending/pending";
 import Invite from "./components/invite-reward/invite";
 import Loader from "./components/loader/loader";
 import Reward from "./components/reward/reward";
+import About from "./components/about/About";
 
 
 
@@ -65,6 +66,7 @@ export default function App() {
             <Route path="invite" element={<Invite />} />
             <Route path="loader" element={<Loader />} />
             <Route path="reward" element={<Reward />} />
+            <Route path="about" element={<About />} />
             {/* <Route path="api-call" element={<ApiCall />} /> */}
 
             {/* <Route path="admin/addtask/:id" element={<AddTask />} /> */}

@@ -93,9 +93,9 @@ const ScoreAnti = () => {
     setFilteredSearch([filtered]);
   };
 
-  useEffect(()=>{
-    handleSearch()
-  },[filteredSearch])
+  // useEffect(()=>{
+  //   handleSearch()
+  // },[filteredSearch])
 
 
   // Ends
@@ -197,12 +197,12 @@ const ScoreAnti = () => {
     [loading, hasMore]
   );
 
-  console.log("Filtered games :",filteredSearch);
+ // console.log("Filtered games :",filteredSearch);
   
   const e = [];
   // const newGames = filteredData[0]? filteredData.map((game, index) => {
-  const newGames = displayedData[0]
-    ? filteredSearch.map((item) => { return item.map((game, index) => {
+  const newGames = filteredData[0]
+    ?  filteredData.map((game, index) => {
        // console.log("game is",game);
         //console.log(game);
         const gameStatus = game.fixture.status.short;
@@ -214,14 +214,14 @@ const ScoreAnti = () => {
 
         const userTime = Date.now();
 
-        filteredSearch.map((item)=>{
-          return item.map((items)=>{
-            console.log("items are: ", items);
+        // filteredSearch.map((item)=>{
+        //   return item.map((items)=>{
+        //     console.log("items are: ", items);
 
-            })
+        //     })
           
-          //console.log("The items are :",item);
-        })
+        //   //console.log("The items are :",item);
+        // })
 
         // const timeout = setTimeout(() => {
 
@@ -338,7 +338,7 @@ const ScoreAnti = () => {
           timeout(endId, matchCard);
           return scoreCard;
         }
-      }) })
+      }) 
     : "";
 
   useEffect(() => {

@@ -10,7 +10,7 @@ import usd from "../../assets/icons/usd.png";
 import usd1 from "../../assets/icons/usd1.png";
 import { DataContext } from "../APIs/Api";
 
-const NavBar_Logo = ({search, setSearch}) => {
+const NavBar_Logo = ({ search, setSearch }) => {
   console.log("searchNav-Logo", search);
   const { activities_g } = useContext(DataContext);
 
@@ -19,7 +19,7 @@ const NavBar_Logo = ({search, setSearch}) => {
   };
 
   return (
-    <div  className="container-sm ms-1 d-flex mt-2 ">
+    <div className="container-sm ms-1 d-flex mt-2 w-100 ">
       <div onClick={goBack}>
         <img src={Arrow} alt="arrow-back" className="nav-arrow" />
       </div>
@@ -43,12 +43,23 @@ const NavBar_Logo = ({search, setSearch}) => {
 
       <div className="ms-auto">
         {/* <i className="fa fa-search position-absolute mt-2 ms-2"></i> */}
+        {/* <input
+          type="text"
+          className="search-div rounded-4 p-1"
+          placeholder="search for league or team..."
+          name="search"
+          onChange={(e) => {
+            setSearch(e.target.value);
+          }}
+        /> */}
         <input
-        type="text"
-        className="search-div rounded-4 p-1"
-        placeholder="search for league or team..."
-        name="search"
-        onChange={(e)=>{setSearch(e.target.value)}}
+          className="form-control w-75 form-username-1 rounded-4 g-sub-color mb-3 "
+          type="text"
+          placeholder="search for league or team..."
+          name="search"
+          onChange={(e) => {
+            setSearch(e.target.value);
+          }}
         />
       </div>
     </div>

@@ -30,6 +30,7 @@ const NavBar_Anti = ({search, setSearch}) => {
         </div>
 
         <div className="market-main-div g-main-sp bg-transparent disabled ">
+        <div className="position-absolute coming-soon-2"><p className="bg-transparent coming-soon-text-2">coming soon</p></div>
           <div className="btn g-sub-color market-div">
             <a href="" className="d-flex g-sub-color g-main-sp">
               <div className="me-1 g-sub-color">
@@ -39,14 +40,15 @@ const NavBar_Anti = ({search, setSearch}) => {
                   alt="IncentiveFund-logo"
                 />
               </div>
-              <div className="g-sub-color incensive-fund g-main-sp">
-                Live-<spam className="text-danger">Coming soon</spam>
+              <div className="g-sub-color incensive-fund g-main-sp pe-3">
+                Live
               </div>
             </a>
           </div>
         </div>
 
         <div className="market-main-div bg-transparent disabled">
+          <div className="position-absolute coming-soon"><p className="bg-transparent coming-soon-text">coming soon</p></div>
           <div className="btn g-sub-color market-div ">
             <a href="" className=" g-main-sp d-flex g-sub-color">
               <div className="me-1 g-sub-color">
@@ -57,7 +59,7 @@ const NavBar_Anti = ({search, setSearch}) => {
                 />
               </div>
               <div className=" g-main-sp g-sub-color incensive-fund">
-                Finished-<spam className="text-danger tx">Coming soon</spam>
+                Finished
               </div>
             </a>
           </div>
