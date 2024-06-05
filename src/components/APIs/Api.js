@@ -1,20 +1,21 @@
 // DataContext.js
 import React, { createContext, useState, useEffect } from "react";
 import axios from "axios";
-// import {
-//   retriveData,
-//   IDBConfig,
-//   saveStoreObj, // Import the new function
-// } from "./index_db";
+import Worker from 'web-worker';
+
+import {
+  retriveData,
+  IDBConfig,
+  saveStoreObj, // Import the new function
+} from "./index_db";
+
 //import { useCookies } from "react-cookie";
 import Cookies from "js-cookie";
 import { API } from "../api-service/api-service";
 import { useNavigate } from "react-router-dom";
 import { getRealTimeDate, range } from "../qickfun/qickfun";
-import worker from "../../worker";
-import WebWorker, { fetchUsers } from "../../WebWorker";
-let client_timezone,client_date_str;
-const webWorker = new WebWorker(worker);
+let client_timezone, client_date_str
+
 
 
 
@@ -60,7 +61,7 @@ const DataProvider = ({ children }) => {
   }, [token1])
   
   useEffect(() => {
-    dbFetch()
+   dbFetch()
   },[])
 
   // useEffect(() => {
@@ -218,51 +219,65 @@ const DataProvider = ({ children }) => {
   // }, [])
 
   const dbFetch = async (req_next_date=false) => {
-     try {
-       // Check if data is found in IndexedDB storage
-       let client = await getRealTimeDate() ;
-       client_timezone=client.timezone
-    //   console.log({client});
-       let currentDateNow = new Date(client.datetime).toISOString().split("T")[0];
+    try {
+      // Check if data is found in IndexedDB storage
+
+     let client = await getRealTimeDate() ;
+     client_timezone=client.timezone
+     let currentDateNow = new Date(client.datetime).toISOString().split("T")[0];
+     
+     if(req_next_date){
+       let add_24 =  addHours(new Date(currentDateNow),24);
+       currentDateNow=add_24.toISOString().split("T")[0]
+     }
+     
+     // let remove_24 =  addHours(new Date(currentDateNow),24,'remove')
+     // console.log({add_24,remove_24})
+     // currentDateNow=remove_24.toISOString().split("T")[0]
+     // currentDateNow=add_24.toISOString().split("T")[0]
+
+     client_date_str=currentDateNow
+     await retriveData(currentDateNow);
+     const timeOut = setInterval(() => {if (IDBConfig.working_dir !== null) {clearInterval(timeOut);startWorker();}}, 100);
+
+     const startWorker = ()=>{
+       console.log('STARTTIng worker<<MMM')
        
-       if(req_next_date){
-         let add_24 =  addHours(new Date(currentDateNow),24);
-         currentDateNow=add_24.toISOString().split("T")[0]
-       }
-       // let remove_24 =  addHours(new Date(currentDateNow),24,'remove')
-
-       // console.log({add_24,remove_24})
-
-       // currentDateNow=remove_24.toISOString().split("T")[0]
-       // currentDateNow=add_24.toISOString().split("T")[0]
-
-       client_date_str=currentDateNow
-
-       webWorker.postMessage([currentDateNow,client_timezone,client_date_str]);
+       const webWorker = new Worker(
+         new URL('../../worker.mjs', import.meta.url),
+         { type: 'module' }
+       );
+       
+       // const webWorker =  WebWorker(worker);
+       // const webWorker =  new WebWorker(worker);
+       // const webWorker = new Worker('worker.js');
+       webWorker.postMessage([currentDateNow,client_timezone,client_date_str,IDBConfig]);
      
        webWorker.addEventListener('message', (event) => {
          let webWorkerData = event.data;
-      //   console.log({webWorkerData});
+         console.log(({webWorkerData}))
+         if(webWorkerData.saveStoreObj){
+           console.log('SAVING STORE >><<')
+           saveStoreObj(webWorkerData.saveStoreObj.working_dir)
+         }
          if (webWorkerData.type=='setData'){
            setData(webWorkerData.data)
          }else{
-          // setAllData((prevData) => ({
-          //   ...prevData,
-          //   data: {
-          //     ...prevData.data,
-          //     ...webWorkerData.data,
-          //   },
-          // }));
-         
-           setAllData((prevData) => [...prevData, ...webWorkerData.data])
-            if(webWorkerData.lastPage) {setCheckData(true)
-        //      console.log("Last page updated success:");
-            }
+           try {
+             setAllData((prevData) => [...prevData, ...webWorkerData.data])
+           } catch (error) {
+             console.log(error)
+           }
+           if(webWorkerData.lastPage) {setCheckData(true)}
          }
        });
-     } catch (error) {console.log(error);}
- };
 
+     }
+      
+
+      
+    } catch (error) {console.log({error});}
+};
   // const fetchOddData = async (dbData,currentDate) => {
 
   //   console.log('NOW RUNNING ODDS FUNC');
