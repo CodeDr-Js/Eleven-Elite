@@ -73,7 +73,7 @@ export default function App() {
           document.body.appendChild(addScript);
           // setTimeout(() => {
           //   //document.body.appendChild(languageSelector);
-            
+            // 
           // }, 5000);
           
         } catch (error) {console.log(error);
