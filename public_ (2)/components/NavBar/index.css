@@ -1,0 +1,13 @@
+.nav-arrow {
+  width: 35px;
+  margin-left: -10px;
+  color: white;
+  rotate: 180deg;
+}
+
+.nav-arrow-2 {
+  width: 32px;
+  margin-left: -10px;
+  color: white;
+  rotate: 180deg;
+}

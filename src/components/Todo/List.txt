@@ -1,0 +1,10 @@
+1. Modal => 
+  a. Id 
+  b. Market ... {Name(corect score), selected(4:0, 4:1 ....), odd(percentage) }
+  c. stake amount 
+
+
+  //Refresh page automatic
+  //Images Div
+  //Input less than 10 disable confirm
+  

@@ -1,0 +1,43 @@
+
+
+/* Default button styles */
+.button {
+  border: none;
+  padding: 0.625rem 1.875rem ;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+}
+
+/* Styles for the active button */
+.active {
+  background-color: transparent;
+  border-bottom:4px solid rgb(10, 92, 245);
+  /* Blue background color */
+  color: #fff;
+  /* White text color */
+
+  
+  /* Rounded corners */
+}
+
+.w-g {
+  width: 90%;
+}
+
+.line {
+  border-right: 3px solid gray;
+  height: 2.188rem;
+  margin-top:0.688rem;
+  margin-left: 50%;
+  position: absolute;
+  opacity: 50%;
+}
+
+
+.a {
+  background-color: red;
+}
+
+
+

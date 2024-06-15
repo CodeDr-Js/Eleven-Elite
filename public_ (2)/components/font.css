@@ -1,0 +1,8 @@
+@font-face{
+    font-family:'digital-clock-font';
+    src: url('https://www.1001fonts.com/download/font/digital-dream.skew.ttf');
+}
+
+.secure-timer{
+    font-family:'digital-clock-font';
+}

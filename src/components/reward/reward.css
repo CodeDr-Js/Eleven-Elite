@@ -1,0 +1,130 @@
+body {
+    background-color: transparent;
+}
+
+.reward-text {
+    font-size: 1.625rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* color: rgb(100, 67, 5); */
+}
+
+.reward-text-1 {
+    font-size: 1.625rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(100, 67, 5);
+    line-height: 0.188rem;
+    background-color: transparent;
+
+}
+
+/* transparent */
+  /* body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        } */
+        body {
+            background-color: transparent;
+        }
+            .container1 {
+                /* background-color: transparent;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh; */
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.651); /* Semi-transparent black overlay */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              
+            }
+          
+
+/* Form */
+.form-password-1 {
+    /* padding: 10px 20px 10px 50px; */
+    color: whitesmoke;
+
+}
+
+.form-password-1::placeholder {
+  background-color: #02123D;
+  color: wheat;
+  opacity: 80%;
+  text-align: center;
+}
+
+.form-password-1:focus {
+  background-color: #02123D;
+  color: wheat;
+}
+
+
+
+/* gift code */
+.pin-div-1 {
+    border-radius: 1.875rem;
+      padding: 1.875rem 2.5rem;
+      margin: 0 1.25rem;
+      width: 65%;
+      height: 13.75rem;
+      background-color: rgb(7, 24, 59);    
+}
+
+#key1 {
+  padding-top: 2.813rem;
+  padding-left: 0.625rem;
+}
+
+#togglePass {
+    position: absolute;
+    margin-left: 15rem;
+    margin-top: 0.938rem;
+    /* margin-right: 200px; */
+    background-color: transparent;
+    margin-right: auto;
+  }
+  
+
+  .error-div {
+    border-radius: 1.875rem;
+      padding: 1.875rem 2.5rem;
+      margin: 0 1.25rem;
+      width: 65%;
+      height: 12.5rem;
+      background-color: rgb(7, 24, 59);    
+}
+
+
+.modal-overlay-error {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Semi-transparent black overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-overlay-success {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Semi-transparent black overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

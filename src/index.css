@@ -1,0 +1,22 @@
+*{
+  margin: 0;
+  padding: 0;
+  color: white ;
+ 
+}
+
+body {
+  background-color: rgb(1, 1, 54) !important;
+  position: relative; 
+  min-height: 100%; 
+  top: 0px !important;
+ 
+}
+
+@media screen and (min-width: 530px) { /* Adjust breakpoint as needed */
+  body {
+    max-width: 500px; /* Example maximum width */
+    margin: 0 auto; /* Center the container horizontally */
+   
+  }
+}

@@ -1,0 +1,1 @@
+// React JS is a declaractive, efficient and flexible javaScript library for building reusable component. It is also an open source, component base front end library which is responsible only for the layer of the application.

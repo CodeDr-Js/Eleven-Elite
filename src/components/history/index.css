@@ -1,0 +1,58 @@
+.history-card-div {
+  margin: 1.25rem 1.25rem;
+  padding: 1.125rem 1.25rem;
+  line-height: 0.813rem;
+}
+
+.anti-card-div {
+  justify-content: space-around;
+  /* width: 42%; */
+}
+
+.anti-percent {
+  font-size: 1.063rem;
+  margin-top: 0.063rem;
+}
+
+.stake-div {
+  justify-content: space-between;
+}
+
+.history-card-main-div {
+  margin-top: 8.75rem;
+}
+
+.cancel-btn{
+  height: 1.563rem;
+  padding: 0 0.625rem;
+  margin-top: -0.938rem;
+}
+
+.cancel-main-div {
+  
+}
+
+.error-cancel {
+ padding: 1.25rem;
+
+}
+
+@media screen and (max-width: 380px) { /* Adjust breakpoint as needed */
+  .wg-card {
+   font-size: 14px;
+   
+  }
+  .d-size{
+    width: 1rem;
+  }
+  .wg-card-1{
+    font-size: 18px !important;
+    padding-left: -420px !important;
+  }
+  .ps {
+    padding-top: 0 !important;
+  }
+  .text-card {
+    font-size: 13px;
+  }
+}

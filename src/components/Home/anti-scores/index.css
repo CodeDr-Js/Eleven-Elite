@@ -1,0 +1,521 @@
+.market-main-div{
+  background-color: rgba(3, 3, 75, 0.575);
+  margin: 0 0.75rem;
+}
+
+.market-div {
+  margin-top: 0.625rem;
+  padding:0.438rem 0.563rem ;
+  line-height: 1.875rem;
+  
+
+}
+
+.market-icon {
+  width: 1.563rem;
+  margin-top: -0.375rem;
+}
+
+.g-color{
+  background-color: blue;
+}
+
+.g-main {
+  justify-content: space-around;
+ 
+}
+
+.g-main-sp {
+  text-decoration: none;
+}
+
+.incensive-fund{
+  font-size: 0.938rem;
+  /* line-height: 0.938rem; */
+ 
+}
+
+/* .g-width {
+  width: ;
+} */
+
+.coming-soon {
+  background-color: gray;
+  font-size: 0.5rem;
+  height: 10px;
+  padding: 0 6px 6px 6px;
+  border-radius: 0 10px 0 10px;
+  margin-top: 10px;
+  margin-left: 45px;
+}
+
+.coming-soon-text{
+  margin-top: -2px;
+}
+.coming-soon-2 {
+  background-color: gray;
+  font-size: 0.5rem;
+  height: 10px;
+  padding: 0 6px 6px 6px;
+  border-radius: 0 10px 0 10px;
+  margin-top: 10px;
+  margin-left: 33px;
+}
+
+.coming-soon-text-2{
+  margin-top: -2px;
+}
+
+.g-sub-color{
+  background-color: rgb(11, 11, 116);
+}
+
+.m-color{
+  background-color: #02025c
+}
+
+
+/* Score-Aganist */
+.score-div {
+  border-top: 1px dotted blue;
+  border-bottom: 5px solid rgba(0, 0, 255, 0.137);
+  padding: 0.5rem 0.938rem;
+  margin-top: 0.188rem;
+ 
+}
+
+
+.score-div-main {
+margin-top: 6.875rem;
+margin-bottom: 3.75rem;
+
+}
+
+.small-div small {
+  font-size: 0.75rem;
+}
+
+.score-div-2 {
+  margin-top: 0.625rem;
+  line-height: 0.75rem;
+  font-size: 0.75rem;
+}
+
+.volume-div {
+  border: 4px solid blue;
+  margin-right: 1.875rem ;
+  margin-top: 0.625rem;
+  
+}
+
+.against-color {
+  background-color: rgb(2, 2, 95);
+  padding:0.063rem 0.5rem;
+  height: 1.875rem;
+  border-radius: 15px 0px 0px 15px ;
+  color:red !important;
+  
+}
+
+.against-div {
+  height: 1.875rem;
+
+}
+
+.against{
+  background-color: rgb(2, 2, 95);
+ 
+}
+.against-div-2 {
+  margin-top: -1.813rem;
+  margin-left: 2.813rem;
+}
+
+.score {
+  word-spacing: 0.625rem;
+  padding-top: 0.188rem;
+  font-size: 0.813rem;
+}
+
+.odd {
+  font-style: italic;
+  font-weight: bold;
+  border-radius: 0px 15px 15px 0px;
+  padding-top: 0.188rem;
+  font-size: 0.813rem;
+
+
+  
+}
+
+/* Footer */
+.position-div {
+  position: -webkit-sticky;
+    /* Safari */
+    position: sticky;
+    bottom: 0;
+    
+}
+
+.font-footer {
+  font-size: 0.625rem;
+}
+
+
+/* Odd Div */
+.odd-nav-div {
+  padding-top: 0.188rem;
+}
+
+.odd-nav-div-2 {
+  font-size: 0.938rem;
+  margin-top: 0.313rem;
+}
+
+.vs {
+  font-family: Verdana, Geneva, Tahoma, sans-serif ;
+  font-size: 0.938rem;
+  margin-top: -0.125rem;
+}
+
+/* Odd */
+.odd-div {
+  background-color: rgba(5, 5, 68, 0.548);
+
+}
+
+.odd-div-color {
+  background-color: rgba(5, 5, 68, 0.548);
+
+}
+
+.odd-league-name {
+  margin-top: -1.375rem;
+  font-size: 0.813rem;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight:lighter;
+}
+
+.odd-div-2 {
+  justify-content: space-between;
+  margin: 0 2.5rem;
+}
+
+.odd-img-div {
+  border: 3px solid rgba(128, 128, 128, 0.212);
+  border-radius: 50%;
+  height: 45px;
+  width: 45px;
+  margin-left:53px;
+}
+
+.odd-img-div-2 {
+  border: 0.188rem solid rgba(128, 128, 128, 0.212);
+  border-radius: 50%;
+  height: 2.813rem;
+  width: 2.813rem;
+  margin-left: 2.313rem;
+}
+
+.odd-img-text {
+  position: absolute;
+  margin-left: 1.75rem;
+  font-size: 0.938rem;
+
+}
+
+.odd-img-text-2 {
+  
+  margin-left:-2.5rem;
+  font-size: 0.938rem;
+
+}
+.odd-time-div {
+  /* margin-left: -40px; */
+}
+
+.width-1 {
+  width: 30%;
+}
+
+.width-2{
+  width: 30%;
+}
+
+.odd-time-1{
+  border-radius: 0.313rem;
+  background-color: rgb(38, 0, 255);
+  padding: 0.313rem 0.563rem;
+  font-size: 1.063rem;
+  font-weight: bold;
+}
+
+.odd-time-2 {
+  padding: 0.313rem;
+  font-weight: bold;
+}
+
+.odd-time-3 {
+  border-radius: 0.313rem;
+  background-color: rgb(38, 0, 255);
+  padding: 0.313rem 0.563rem;
+  font-size: 1.063rem;
+  font-weight: bold;
+}
+
+.odd-date {
+  padding-top: 0.438rem;
+}
+
+/* Odd Scores */
+.odd-score-div {
+  background-color: rgba(5, 5, 68, 0.548);
+}
+
+.odd-score-div-2 {
+  
+}
+.odd-score-div-3 {
+    padding: 0.875rem 1.375rem;
+    justify-content: space-between;
+}
+
+.odd-cs {
+  background-color: rgb(7, 24, 59);
+  font-size: 0.875rem;
+  font-family: cursive;
+  padding: 0.375rem 1.375rem;
+  margin-top: 1.063rem;
+
+}
+
+.odd-sl {
+  border-radius: 10px;
+  background-color: rgb(7, 24, 59);
+  padding: 0.625rem 0.625rem;
+  margin-bottom: 0.438rem;
+  height: 2.5rem;
+  width: 6.25rem;
+}
+
+.odd-sl span {
+  background-color: rgb(7, 24, 59);
+  font-family: monospace;
+}
+
+.odd-sl-span-1 {
+  font-size: 0.625rem;
+  padding-top: 0.25rem;
+  opacity: 20%;
+}
+
+.odd-sl-span-2 {
+  font-size: 0.875rem;
+}
+
+.odd-c-text {
+  margin-bottom: 0.313rem;
+}
+
+.odd-c-name-1, .odd-c-name-2, .odd-c-name-3 {
+  opacity: 25%;
+}
+
+.odd-4 {
+    border-radius: 0.625rem;
+    background-color: rgb(7, 24, 59);
+    padding: 0.625rem 0.625rem;
+    margin-bottom: 3.125rem;
+    height: 2.5rem;
+    width: 89%;
+    margin-left: 1.25rem;
+    
+}
+
+.odd-about-div{
+  background-color: rgb(5, 27, 71);;
+  border-radius: 50%;
+  height: 5.313rem;
+  width: 5.313rem;
+
+  font-size: 0.688rem;
+  font-family: cursive;
+  color: rgba(20, 199, 20, 0.623);
+  padding: 1.25rem 0.625rem 0 0.625rem;
+  font-weight: bold;
+  letter-spacing: 0.25rem;
+}
+
+.odd-about {
+  margin-top: -1.25rem;
+  display: flex;
+  justify-content: end;
+}
+
+/* Updated Odd */
+.margin {
+  margin-top: 4.813rem;
+  margin-bottom: 6.25rem;
+}
+
+
+/* Bet */
+.bet-div{
+  border-radius: 30px;
+  padding: 0.938rem 1.563rem;
+  margin: 0 1.25rem;
+  width: 85%;
+
+
+
+}
+
+.bet-div-1{
+  border-radius: 30px;
+  padding: 0.938rem 1.563rem;
+  margin: 0 1.25rem;
+  width: 85%;
+  background-color:#020252;
+
+}
+
+
+
+.bet-color{
+  background-color: rgb(7, 24, 59); 
+
+}
+
+.bet-div-2 {
+  padding: 0.625rem 0.938rem;
+  border-radius: 20px;
+  margin-top: -0.625rem;
+  padding-bottom: 0.688rem;
+  margin-bottom: 0.938rem;
+}
+
+.bet-logo-div{
+  border: 5px solid rgba(128, 128, 128, 0.212);
+    border-radius: 50%;
+    height: 2.188rem;
+    width: 2.188rem;
+}
+
+.bet-team-div {
+  justify-content: space-around;
+  margin: 0 1.25rem;
+}
+
+.bet-cs-div {
+  height: 2.375rem;
+  margin-top: 0.625rem;
+  padding-bottom: 2.5rem;
+  margin-left: 1.875rem;
+}
+
+.bet-amount-div {
+    padding: 0.625rem 0.938;
+    border-radius: 1.25rem;
+    margin-top: 1.563rem;
+  
+
+}
+
+.bet-pg-div {
+  width: 70%;
+}
+
+.bet-input {
+  padding-left: 2.125rem;
+  width: 80%;
+}
+
+.bet-input-div {
+  margin-top: -1.563rem;
+}
+
+.bet-x-div {
+  margin-left: -9rem;
+  margin-top: 2.5rem;
+
+}
+
+.bet-per {
+  margin-top: 1.625rem;
+}
+
+.bet-font {
+  font-size: 0.688rem;
+}
+
+.bet-font-2 {
+  font-size: 0.688rem;
+}
+
+.amount-icon {
+  position: absolute;
+  background-color: transparent;
+}
+
+
+
+/* Modal.css */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Semi-transparent black overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-overlay-error {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Semi-transparent black overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-overlay-success {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Semi-transparent black overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Error and Success Card */
+.error-div-1 {
+    border-radius: 1.875rem;
+      padding: 1.875rem 2.5rem;
+      margin: 0 1.25rem;
+      width: 65%;
+      height: 13.8rem;
+      background-color: rgb(7, 24, 59);    
+}
+
+.tx {
+  font-size: 9px;
+}
+
+
+@media screen and (max-width: 390px) { /* Adjust breakpoint as needed */
+  .cs-sm {
+    font-size: 17px;
+    padding-top: 4px;
+  }
+}

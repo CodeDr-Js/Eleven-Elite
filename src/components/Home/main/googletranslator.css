@@ -1,0 +1,35 @@
+#google_translate_element {
+    position: fixed;
+    margin-left: 4px;
+    /* margin-top: 7px; */
+    background: #f6edfd;
+    color: rgb(164, 54, 36) !important;
+    border: none;
+    border-radius: 3px;
+    width: 80px;
+    padding: 6px 8px;
+    top: 50%;
+    box-shadow: none;
+    z-index: 99999;
+    transition: transform .3s cubic-bezier(0,0,0,1);
+    right: 0;
+  }
+
+  .VIpgJd-yAWNEb-L7lbkb {
+    display: none;
+  }
+  .goog-te-combo {
+    width: 70px;
+    background: #110E33;
+    color: #999;
+    border: 1px solid #f2c2c2ad;
+
+  }
+  .VIpgJd-ZVi9od-ORHb-OEVmcd{
+    display: none !important;
+  }
+
+  .VIpgJd-yAWNEb-L7lbkb, #goog-gt-tt, #goog-gt-vt, .VIpgJd-yAWNEb-hvhgNd{
+    display: none !important;
+}
+

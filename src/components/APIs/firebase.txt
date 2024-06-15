@@ -1,0 +1,23 @@
+//https://chat.openai.com/c/a2c9c115-5d10-45d0-8cbe-17a0d0118180
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyAank_qS0mCHJ5e1iP4sTHKXaqiQJYirPs",
+  authDomain: "football-a78b4.firebaseapp.com",
+  projectId: "football-a78b4",
+  storageBucket: "football-a78b4.appspot.com",
+  messagingSenderId: "551742619891",
+  appId: "1:551742619891:web:f521eeae2fd7a10dc0b786",
+  measurementId: "G-0LYEBX78GW"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);

@@ -1,0 +1,8 @@
+@media screen and (min-width: 530px) { /* Adjust breakpoint as needed */
+    .container {
+      max-width: 500px; /* Example maximum width */
+      margin: 0 auto; /* Center the container horizontally */
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+     
+    }
+  }

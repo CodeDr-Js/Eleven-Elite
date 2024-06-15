@@ -1,0 +1,55 @@
+.main-div {
+  background-color: rgb(2, 2, 92);
+  height: 120px;
+  padding: 10px 2px; 
+  justify-content: space-around;
+
+}
+
+.main {
+  
+}
+.main-div-2 {
+  background-color: rgb(2, 2, 92);
+  margin: -60px 0px 0 0px;
+    padding: 10px 2px;
+    height: 70px;
+    justify-content: space-around;
+}
+
+.main-color {
+  background-color: rgb(2, 2, 92);
+}
+
+
+.icon-div {
+ /* background:linear-gradient(to right, rgba(255, 0, 0, 0.308), rgba(255, 255, 0, 0.63), rgba(25, 5, 141, 0.829)); */
+  height: 30px;
+  width: 30px;
+  text-decoration: none;
+  background-color: transparent;
+  
+  
+}
+
+.main-icon {
+  width: 30px;
+  border-radius: 50%;
+background: radial-gradient(circle, rgba(255, 0, 0, 0.123), rgba(255, 255, 0, 0.13), rgba(26, 5, 141, 0.267));
+}
+
+.main-text {
+  font-size: 10px;
+  font-family: monospace;
+  /* font-weight: bold; */
+  margin-top: 3px;
+
+}
+
+.line-height {
+  line-height: 2px;
+}
+
+.opacity {
+  color: rgba(255, 255, 255, 0.438);
+}

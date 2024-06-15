@@ -1,0 +1,90 @@
+.main-div {
+  background-color: rgb(2, 2, 92);
+  height: 7.5rem;
+  padding: 0.625rem 0.125rem; 
+  justify-content: space-around;
+
+}
+
+.main {
+  
+}
+.main-div-2 {
+  background-color: rgb(2, 2, 92);
+  margin: -3.75rem 0 0 0;
+    padding: 0.625rem 0.125rem;
+    height: 4.375rem;
+    justify-content: space-around;
+}
+
+.main-color {
+  background-color: rgb(2, 2, 92);
+}
+
+
+.icon-div {
+ /* background:linear-gradient(to right, rgba(255, 0, 0, 0.308), rgba(255, 255, 0, 0.63), rgba(25, 5, 141, 0.829)); */
+  height: 1.875rem;
+  width: 1.875rem;
+  text-decoration: none;
+  background-color: transparent;
+  
+  
+}
+
+.main-icon {
+  width: 1.875rem;
+  border-radius: 50%;
+background: radial-gradient(circle, rgba(255, 0, 0, 0.123), rgba(255, 255, 0, 0.13), rgba(26, 5, 141, 0.267));
+}
+
+.main-text {
+  font-size: 0.625rem;
+  font-family: monospace;
+  /* font-weight: bold; */
+  margin-top: 0.188rem;
+
+}
+
+.line-height {
+  line-height: 0.125rem;
+}
+
+.opacity {
+  color: rgba(255, 255, 255, 0.438);
+}
+
+.secured-font {
+  font-size: 0.80rem;
+}
+
+.secureW-1 {
+  width: 35%;
+}
+
+.secureW-2{
+  width: 30%;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+/* .fire {
+
+margin-left: 4.6rem;
+
+} */
+ .b-none {
+  background-color: none;
+ }
+
+@media screen and (max-width: 380px) { /* Adjust breakpoint as needed */
+  .secured-font {
+    font-size: 0.70rem;
+  }
+  .secureW-2{
+    width: 35%;
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+ 
+}
+

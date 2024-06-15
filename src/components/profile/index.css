@@ -1,0 +1,114 @@
+.copy-notice {
+    font-size: xx-small;
+    color: rgba(127, 255, 212, 0.5);
+    
+}
+
+.copy-notice-div {
+    margin-top: -0.625rem;
+    background-color: transparent;
+
+}
+
+.withdraw-btn {
+    background: linear-gradient(to right, #007bff, #ffffff);
+    color: #fff; /* Text color */
+    padding: 0.625rem 1.25rem;
+    border: none;
+    border-radius: 0.188rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.deposit-btn {
+    
+        background: linear-gradient(to right, #007bff, #00ff00);
+        color: #fff;
+        padding: 0.625rem 1.25rem;
+        border: none;
+        border-radius: 0.188rem;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease;
+    
+    
+}
+
+.withdraw-btn:hover, .deposit-btn:hover {
+    background-color: #0056b3; /* Darker blue color on hover */
+}
+
+.acct-info-div {
+    border-bottom: 1px solid rgba(216, 209, 209, 0.555);
+}
+
+.acct-info-text {
+    opacity: 50%;
+    font-size: 0.813rem;
+    
+   
+}
+
+#envelop1 {
+    margin-left:  -0.625rem;
+    
+}
+
+
+.upload-button {
+    margin-left: 0.625rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.upload-button:hover {
+    background-color: #0056b3;
+}
+
+.icon-color {
+    color: #0F6692 ;
+}
+
+.bell-num {
+    width: 0.625rem;
+    height: 0.625rem;
+    margin-left: 3.125rem;
+    margin-top: -1.25rem;
+    padding-bottom: 0.125rem;
+    font-weight: bold;
+    font-size: 0.438rem;
+    text-align: center;
+    position: absolute;
+
+}
+
+.wrap-text {
+    overflow-wrap: break-word; /* For modern browsers */
+    word-wrap: break-word; /* For older browsers */
+}
+
+
+/* Modal.css */
+.modal-overlay-profile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Semi-transparent black overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

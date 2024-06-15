@@ -1,0 +1,36 @@
+.text-font {
+ 
+}
+
+.option-div option {
+    font-size: 0.75rem;
+    width: 100%;
+    /* box-sizing: border-box; 
+    margin-left: 200px; */
+}
+
+
+/* Style the calendar icon */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    background-color: #d9ff00; /* Example background color */
+    color: white; /* Example text color */
+    padding: 0.25rem; /* Example padding */
+    border-radius: 50%; /* Example border radius */
+    cursor: pointer; /* Show pointer cursor on hover */
+  }
+  
+  /* Hide the default input arrow */
+  input[type="date"]::-webkit-inner-spin-button {
+    /* display: none; */
+  }
+  
+  /* Hide the clear button (Chrome and Safari) */
+  input[type="date"]::-webkit-clear-button {
+    /* display: none; */
+  }
+  
+  /* Hide the calendar button (Firefox) */
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    /* display: none; */
+  }
+  

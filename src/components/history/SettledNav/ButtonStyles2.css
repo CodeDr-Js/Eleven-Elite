@@ -1,0 +1,27 @@
+
+/* Styles for the active button */
+.active1 {
+  background-color: rgba(21, 119, 231, 0.856);
+  /* border-bottom:4px solid rgb(10, 92, 245); */
+  /* Blue background color */
+  color: #fff;
+  /* White text color */
+  border-radius: 20px;
+  
+
+  
+  /* Rounded corners */
+}
+
+
+
+/* New */
+.wg-button {
+  border: none;
+  padding: 0.438rem 1.563rem;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  text-align: center;
+  font-size: 0.813rem;
+}

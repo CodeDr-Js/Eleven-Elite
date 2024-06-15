@@ -1,0 +1,112 @@
+/* Colors */
+.g-sub-color {
+  background-color: #02123D;
+}
+
+.odd-div {
+  background-color: rgba(5, 5, 68, 0.548);
+
+}
+
+.odd-cs {
+  background-color: rgb(7, 24, 59);
+}
+
+.bet-color {
+  background-color: rgb(7, 24, 59);
+
+}
+
+/* End */
+
+.form-div {
+
+}
+
+.form-login {
+  
+}
+
+.form-signup {
+
+}
+
+.form-username {
+  padding: 10px 0px 10px 50px;
+  color: whitesmoke;
+}
+
+.form-username::placeholder {
+  background-color: #02123D;
+  color: wheat;
+  opacity: 80%;
+}
+.form-username:focus {
+  background-color: #02123D;
+  color: wheat;
+}
+
+.form-password {
+    padding: 10px 20px 10px 50px;
+    color: whitesmoke;
+
+}
+
+.form-password::placeholder {
+  background-color: #02123D;
+  color: wheat;
+  opacity: 80%;
+}
+
+.form-password:focus {
+  background-color: #02123D;
+  color: wheat;
+}
+
+.form-forget {
+
+}
+
+.form-login-btn {
+  background-color: rgba(5, 74, 202, 0.575);
+  padding: 15px;
+  border-radius: 13px;
+  color: whitesmoke;
+  font-size: 17px;
+  opacity: 70%;
+
+}
+
+.form-have-account {
+
+}
+
+.sign-up {
+
+}
+/* fa-lg,
+fa-2x,
+fa-3x,
+fa-4x,
+fa-5x,
+or fa-10x */
+#envelope {
+  background-color: transparent;
+  padding-top: 0px;
+  padding-left: 8px;
+
+}
+
+#key {
+  background-color: transparent;
+  padding-top: 18px;
+  padding-left: 8px;
+  
+}
+
+#toggle2 {
+  position: absolute;
+  margin-left: 295px;
+  margin-top: -30px;
+}
+
